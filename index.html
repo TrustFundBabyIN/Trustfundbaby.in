@@ -1,0 +1,2221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trust Fund Baby — Plant Today. Harvest at 21.</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0B1A33;
+  --navy-mid: #152444;
+  --navy-light: #1E3260;
+  --gold: #C9A84C;
+  --gold-light: #E8C96A;
+  --gold-pale: #F8F3E6;
+  --white: #FFFFFF;
+  --cream: #FDFAF4;
+  --text-dark: #0B1A33;
+  --text-mid: #4A5568;
+  --text-light: #8897B0;
+  --green: #2D7A4F;
+  --green-light: #E8F5EE;
+  --red: #C0392B;
+  --border: rgba(201,168,76,0.2);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ===== PAGE SYSTEM ===== */
+.page { display: none; min-height: 100vh; }
+.page.active { display: block; }
+
+/* ===== NAV ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(11,26,51,0.97);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  padding: 0 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 70px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px; cursor: pointer;
+  text-decoration: none;
+}
+.nav-logo-icon {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+.nav-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 600;
+  color: var(--white); letter-spacing: 0.3px;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none; font-size: 13px; font-weight: 500;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--navy) !important;
+  padding: 9px 22px; border-radius: 4px;
+  font-weight: 600 !important; font-size: 12px !important;
+}
+
+/* ===== BUTTONS ===== */
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--navy); border: none; cursor: pointer;
+  padding: 14px 32px; border-radius: 4px;
+  font-family: 'Jost', sans-serif; font-weight: 600;
+  font-size: 14px; letter-spacing: 0.5px; text-transform: uppercase;
+  transition: all 0.3s; display: inline-block;
+}
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.4); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--gold); border: 1px solid var(--gold);
+  cursor: pointer; padding: 13px 32px; border-radius: 4px;
+  font-family: 'Jost', sans-serif; font-weight: 500;
+  font-size: 14px; letter-spacing: 0.5px; text-transform: uppercase;
+  transition: all 0.3s;
+}
+.btn-outline:hover { background: rgba(201,168,76,0.1); }
+
+.btn-navy {
+  background: var(--navy); color: var(--gold); border: none;
+  cursor: pointer; padding: 14px 32px; border-radius: 4px;
+  font-family: 'Jost', sans-serif; font-weight: 600;
+  font-size: 14px; letter-spacing: 0.5px; text-transform: uppercase;
+  transition: all 0.3s;
+}
+.btn-navy:hover { background: var(--navy-light); transform: translateY(-2px); }
+
+/* ===== HERO ===== */
+.hero {
+  background: var(--navy);
+  min-height: 100vh;
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  padding-top: 70px;
+}
+.hero-bg-pattern {
+  position: absolute; inset: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(201,168,76,0.06) 0%, transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(201,168,76,0.04) 0%, transparent 40%),
+    radial-gradient(circle at 60% 80%, rgba(30,50,96,0.8) 0%, transparent 50%);
+}
+.hero-grid-lines {
+  position: absolute; inset: 0; opacity: 0.04;
+  background-image: 
+    linear-gradient(rgba(201,168,76,1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,1) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto; padding: 0 5%;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+}
+.hero-text { animation: fadeInLeft 0.8s ease forwards; }
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold); padding: 6px 14px; border-radius: 20px;
+  font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.hero-badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold); animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 68px; font-weight: 600; line-height: 1.05;
+  color: var(--white); margin-bottom: 8px;
+}
+.hero-title em { color: var(--gold); font-style: italic; }
+.hero-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; color: rgba(255,255,255,0.6);
+  font-style: italic; margin-bottom: 24px; font-weight: 300;
+}
+.hero-desc {
+  color: rgba(255,255,255,0.65); font-size: 16px; line-height: 1.75;
+  margin-bottom: 40px; max-width: 460px;
+}
+.hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.hero-stats {
+  display: flex; gap: 40px; margin-top: 50px;
+  padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.08);
+}
+.hero-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px; font-weight: 600; color: var(--gold); display: block;
+}
+.hero-stat-label {
+  font-size: 11px; color: rgba(255,255,255,0.5);
+  text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* Hero faces */
+.hero-visual {
+  position: relative; animation: fadeInRight 0.8s ease 0.2s both;
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.hero-faces-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; position: relative;
+}
+.face-card {
+  background: var(--navy-mid);
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 16px; overflow: hidden;
+  position: relative; aspect-ratio: 0.85;
+  transition: transform 0.3s;
+}
+.face-card:hover { transform: scale(1.02); }
+.face-card:nth-child(2) { margin-top: 32px; }
+.face-card:nth-child(3) { margin-top: -32px; }
+.face-card img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top;
+  filter: brightness(0.85) saturate(0.9);
+}
+.face-card-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(11,26,51,0.95));
+  padding: 20px 16px 16px;
+}
+.face-card-name {
+  color: var(--white); font-size: 13px; font-weight: 600; display: block;
+}
+.face-card-detail {
+  color: var(--gold); font-size: 11px; font-weight: 500;
+}
+.hero-floating-card {
+  position: absolute; left: -40px; top: 50%;
+  transform: translateY(-50%);
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.35);
+  backdrop-filter: blur(20px);
+  border-radius: 12px; padding: 18px 22px;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  50% { transform: translateY(-52%) translateX(-4px); }
+}
+.floating-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 600; color: var(--gold-light); display: block;
+}
+.floating-label { font-size: 10px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; }
+
+/* ===== SECTION COMMONS ===== */
+.section { padding: 100px 5%; }
+.section-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 14px; display: block;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px; font-weight: 600; line-height: 1.1;
+  color: var(--navy); margin-bottom: 16px;
+}
+.section-title-white { color: var(--white); }
+.section-desc {
+  font-size: 17px; line-height: 1.7; color: var(--text-mid);
+  max-width: 560px;
+}
+.section-center { text-align: center; }
+.section-center .section-desc { margin: 0 auto; }
+.max-w { max-width: 1200px; margin: 0 auto; }
+
+/* ===== HOW IT WORKS ===== */
+.how-it-works { background: var(--white); }
+.steps-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; margin-top: 64px;
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 16px; overflow: hidden;
+}
+.step-card {
+  padding: 48px 36px;
+  background: var(--white);
+  border-right: 1px solid rgba(201,168,76,0.15);
+  position: relative; transition: background 0.3s;
+}
+.step-card:last-child { border-right: none; }
+.step-card:hover { background: var(--gold-pale); }
+.step-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 80px; font-weight: 300; color: rgba(201,168,76,0.15);
+  line-height: 1; position: absolute; top: 20px; right: 24px;
+}
+.step-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; margin-bottom: 24px;
+}
+.step-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 600; color: var(--navy);
+  margin-bottom: 12px;
+}
+.step-desc { font-size: 15px; color: var(--text-mid); line-height: 1.7; }
+.step-timeline {
+  margin-top: 20px; padding-top: 20px;
+  border-top: 1px solid rgba(201,168,76,0.2);
+  font-size: 12px; color: var(--gold); font-weight: 600;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* ===== CALCULATOR ===== */
+.calculator-section { background: var(--navy); }
+.calculator-wrapper {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center; margin-top: 64px;
+}
+.calc-inputs { }
+.calc-row { margin-bottom: 36px; }
+.calc-label {
+  display: flex; justify-content: space-between;
+  font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7);
+  text-transform: uppercase; letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+.calc-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 600; color: var(--gold);
+}
+.calc-slider {
+  width: 100%; height: 4px;
+  -webkit-appearance: none; appearance: none;
+  background: linear-gradient(to right, var(--gold) var(--pct,50%), rgba(255,255,255,0.15) var(--pct,50%));
+  border-radius: 2px; outline: none;
+}
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 20px; height: 20px;
+  background: var(--gold); border-radius: 50%;
+  cursor: pointer; border: 3px solid var(--navy);
+  box-shadow: 0 0 0 2px var(--gold);
+}
+.calc-results {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 20px; padding: 48px; text-align: center;
+}
+.result-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px; font-weight: 600; color: var(--gold);
+  line-height: 1;
+}
+.result-sub { font-size: 15px; color: rgba(255,255,255,0.5); margin-top: 8px; margin-bottom: 40px; }
+.result-breakdown {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; text-align: left;
+}
+.breakdown-item {
+  background: rgba(255,255,255,0.04); border-radius: 10px;
+  padding: 16px 20px;
+}
+.breakdown-label { font-size: 11px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; }
+.breakdown-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; color: var(--white); display: block; margin-top: 4px;
+}
+.breakdown-val.gold { color: var(--gold); }
+
+/* ===== PLANS ===== */
+.plans-section { background: var(--cream); }
+.plans-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 24px; margin-top: 64px; max-width: 900px; margin-left: auto; margin-right: auto;
+}
+.plan-card {
+  border-radius: 20px; padding: 48px 40px;
+  position: relative; overflow: hidden;
+  transition: transform 0.3s;
+}
+.plan-card:hover { transform: translateY(-4px); }
+.plan-free {
+  background: var(--white);
+  border: 1px solid rgba(201,168,76,0.25);
+}
+.plan-premium {
+  background: var(--navy);
+  border: 1px solid rgba(201,168,76,0.3);
+}
+.plan-badge {
+  position: absolute; top: 24px; right: 24px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--navy); font-size: 10px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 20px;
+}
+.plan-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px; font-weight: 600; margin: 20px 0 4px;
+}
+.plan-free .plan-price { color: var(--navy); }
+.plan-premium .plan-price { color: var(--gold); }
+.plan-price-note { font-size: 13px; color: var(--text-mid); margin-bottom: 32px; }
+.plan-premium .plan-price-note { color: rgba(255,255,255,0.5); }
+.plan-features { list-style: none; }
+.plan-features li {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05);
+  font-size: 14px; line-height: 1.5;
+}
+.plan-premium .plan-features li { border-bottom-color: rgba(255,255,255,0.06); color: rgba(255,255,255,0.8); }
+.plan-features li:last-child { border-bottom: none; }
+.check { color: var(--gold); font-weight: 700; font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.plan-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; font-weight: 600;
+}
+.plan-free .plan-name { color: var(--navy); }
+.plan-premium .plan-name { color: var(--white); }
+.plan-cta { margin-top: 40px; width: 100%; text-align: center; }
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-section { background: var(--white); }
+.testimonials-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px; margin-top: 64px;
+}
+.testimonial-card {
+  background: var(--cream); border-radius: 16px; padding: 36px;
+  border: 1px solid rgba(201,168,76,0.15);
+  transition: box-shadow 0.3s;
+}
+.testimonial-card:hover { box-shadow: 0 12px 40px rgba(11,26,51,0.08); }
+.testimonial-stars { color: var(--gold); font-size: 16px; margin-bottom: 16px; }
+.testimonial-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-style: italic; color: var(--navy);
+  line-height: 1.6; margin-bottom: 24px;
+}
+.testimonial-author {
+  display: flex; align-items: center; gap: 14px;
+}
+.testimonial-avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  object-fit: cover; border: 2px solid var(--gold);
+}
+.testimonial-name { font-weight: 600; font-size: 14px; color: var(--navy); }
+.testimonial-role { font-size: 12px; color: var(--text-mid); }
+
+/* ===== FAQ ===== */
+.faq-section { background: var(--cream); }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 64px; }
+.faq-item {
+  background: var(--white); border-radius: 12px;
+  border: 1px solid rgba(201,168,76,0.15); overflow: hidden;
+}
+.faq-q {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 22px 24px; cursor: pointer;
+  font-weight: 500; font-size: 15px; color: var(--navy);
+  transition: background 0.2s;
+}
+.faq-q:hover { background: var(--gold-pale); }
+.faq-toggle {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--gold); color: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 700; flex-shrink: 0;
+  transition: transform 0.3s;
+}
+.faq-a {
+  padding: 0 24px; max-height: 0; overflow: hidden;
+  transition: all 0.3s; font-size: 14px; color: var(--text-mid); line-height: 1.7;
+}
+.faq-item.open .faq-a { max-height: 200px; padding: 0 24px 22px; }
+.faq-item.open .faq-toggle { transform: rotate(45deg); }
+
+/* ===== WELLWISHER SECTION ===== */
+.wellwisher-section { background: var(--navy); }
+.wellwisher-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+}
+.gift-card-preview {
+  background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05));
+  border: 1px solid rgba(201,168,76,0.35);
+  border-radius: 20px; padding: 40px;
+  position: relative; overflow: hidden;
+}
+.gift-card-pattern {
+  position: absolute; inset: 0; opacity: 0.05;
+  background-image: radial-gradient(circle, var(--gold) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.gift-card-icon { font-size: 48px; margin-bottom: 20px; position: relative; }
+.gift-card-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px; font-weight: 600; color: var(--gold);
+  margin-bottom: 8px; position: relative;
+}
+.gift-card-child { color: rgba(255,255,255,0.8); font-size: 16px; position: relative; }
+.gift-card-from { color: rgba(255,255,255,0.45); font-size: 13px; margin-top: 4px; position: relative; }
+.gift-cert-badge {
+  position: absolute; top: 20px; right: 20px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--navy); font-size: 10px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 20px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--navy);
+  border-top: 1px solid rgba(201,168,76,0.12);
+  padding: 80px 5% 40px;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px; margin-bottom: 60px;
+}
+.footer-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 600; color: var(--white); margin-bottom: 16px;
+}
+.footer-tagline { color: var(--gold); font-size: 13px; font-style: italic; margin-bottom: 24px; }
+.footer-desc { color: rgba(255,255,255,0.45); font-size: 13px; line-height: 1.8; }
+.footer-col-title { color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 32px; display: flex; justify-content: space-between; align-items: center;
+}
+.footer-copy { color: rgba(255,255,255,0.3); font-size: 12px; }
+.footer-tagline-bottom {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; color: var(--gold); font-size: 14px;
+}
+
+/* ===== PARENT DASHBOARD ===== */
+.dashboard-layout {
+  display: flex; min-height: 100vh; padding-top: 70px;
+}
+.sidebar {
+  width: 260px; background: var(--navy); flex-shrink: 0;
+  padding: 32px 0; border-right: 1px solid rgba(201,168,76,0.12);
+  position: sticky; top: 70px; height: calc(100vh - 70px);
+  overflow-y: auto;
+}
+.sidebar-profile {
+  padding: 0 24px 32px; border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 16px;
+}
+.sidebar-avatar {
+  width: 56px; height: 56px; border-radius: 50%;
+  object-fit: cover; border: 2px solid var(--gold);
+  margin-bottom: 12px;
+}
+.sidebar-name { color: var(--white); font-weight: 600; font-size: 15px; }
+.sidebar-plan {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.5px; padding: 3px 10px; border-radius: 20px; margin-top: 6px;
+}
+.sidebar-nav { padding: 0 12px; }
+.sidebar-nav-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 14px; border-radius: 8px; cursor: pointer;
+  color: rgba(255,255,255,0.55); font-size: 14px; font-weight: 500;
+  transition: all 0.2s; margin-bottom: 2px; user-select: none;
+}
+.sidebar-nav-item:hover { background: rgba(255,255,255,0.06); color: var(--white); }
+.sidebar-nav-item.active { background: rgba(201,168,76,0.12); color: var(--gold); }
+.sidebar-nav-icon { font-size: 18px; width: 24px; text-align: center; }
+.dash-main { flex: 1; padding: 40px 48px; background: #F5F7FA; overflow-y: auto; }
+.dash-header { margin-bottom: 32px; }
+.dash-greeting {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px; font-weight: 600; color: var(--navy);
+}
+.dash-date { color: var(--text-mid); font-size: 14px; margin-top: 4px; }
+
+/* Progress bar */
+.progress-card {
+  background: var(--white); border-radius: 16px; padding: 32px 36px;
+  margin-bottom: 24px; border: 1px solid rgba(201,168,76,0.15);
+}
+.progress-title { font-weight: 600; color: var(--navy); font-size: 15px; margin-bottom: 24px; }
+.progress-steps {
+  display: flex; align-items: center; gap: 0;
+  position: relative;
+}
+.progress-step {
+  flex: 1; text-align: center; position: relative; z-index: 1;
+}
+.progress-step-circle {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; margin: 0 auto 8px;
+  transition: all 0.3s;
+}
+.ps-done { background: var(--gold); color: var(--navy); }
+.ps-active { background: var(--navy); color: var(--white); box-shadow: 0 0 0 4px rgba(11,26,51,0.15); }
+.ps-pending { background: #E5E7EB; color: #9CA3AF; }
+.progress-step-label { font-size: 11px; color: var(--text-mid); line-height: 1.3; }
+.progress-line {
+  position: absolute; top: 18px; left: 0; right: 0; height: 2px;
+  background: #E5E7EB; z-index: 0;
+}
+.progress-line-fill {
+  height: 100%; background: var(--gold); width: var(--fill, 0%);
+  transition: width 1s ease;
+}
+
+/* Dashboard cards */
+.dash-stats-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 16px; margin-bottom: 24px;
+}
+.stat-card {
+  background: var(--white); border-radius: 14px; padding: 24px;
+  border: 1px solid rgba(201,168,76,0.1);
+}
+.stat-card-label { font-size: 12px; color: var(--text-mid); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.stat-card-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; font-weight: 600; color: var(--navy);
+}
+.stat-card-change { font-size: 12px; margin-top: 4px; }
+.stat-card-change.up { color: var(--green); }
+.stat-card-change.neutral { color: var(--text-mid); }
+
+/* Chart */
+.chart-card {
+  background: var(--white); border-radius: 16px; padding: 32px 36px;
+  margin-bottom: 24px; border: 1px solid rgba(201,168,76,0.1);
+}
+.chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.chart-title { font-weight: 600; color: var(--navy); font-size: 16px; }
+.chart-tabs { display: flex; gap: 8px; }
+.chart-tab {
+  padding: 6px 14px; border-radius: 6px; font-size: 12px;
+  font-weight: 500; cursor: pointer; transition: all 0.2s;
+  border: 1px solid #E5E7EB; color: var(--text-mid); background: var(--white);
+}
+.chart-tab.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.chart-area { height: 200px; position: relative; }
+.mini-chart-svg { width: 100%; height: 100%; }
+
+/* Contributions table */
+.contributions-card {
+  background: var(--white); border-radius: 16px; padding: 32px 36px;
+  border: 1px solid rgba(201,168,76,0.1);
+}
+.table-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 24px;
+}
+.table-title { font-weight: 600; color: var(--navy); font-size: 16px; }
+.contrib-table { width: 100%; border-collapse: collapse; }
+.contrib-table th {
+  text-align: left; font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-mid);
+  padding: 10px 0; border-bottom: 1px solid #F3F4F6;
+}
+.contrib-table td {
+  padding: 14px 0; border-bottom: 1px solid #F9FAFB;
+  font-size: 14px; color: var(--text-dark);
+}
+.contrib-table tr:last-child td { border-bottom: none; }
+.contrib-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  object-fit: cover; border: 2px solid rgba(201,168,76,0.2);
+}
+.contrib-name-cell { display: flex; align-items: center; gap: 12px; }
+.contrib-rel { font-size: 11px; color: var(--text-mid); }
+.contrib-amount { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--navy); }
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 20px;
+  font-size: 11px; font-weight: 600;
+}
+.badge-green { background: var(--green-light); color: var(--green); }
+.badge-gold { background: rgba(201,168,76,0.1); color: var(--gold); }
+
+/* Share link box */
+.share-box {
+  background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+  border-radius: 14px; padding: 28px; margin-bottom: 24px;
+  border: 1px solid rgba(201,168,76,0.2); color: var(--white);
+}
+.share-box-title { font-weight: 600; margin-bottom: 6px; }
+.share-box-desc { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 18px; }
+.share-input-wrap { display: flex; gap: 10px; }
+.share-input {
+  flex: 1; padding: 10px 16px; border-radius: 8px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(201,168,76,0.2);
+  color: var(--gold); font-size: 13px; outline: none; font-family: 'Jost', sans-serif;
+}
+.share-copy-btn {
+  background: var(--gold); color: var(--navy); border: none; cursor: pointer;
+  padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 13px;
+  transition: all 0.2s;
+}
+.share-copy-btn:hover { background: var(--gold-light); }
+
+/* ===== CHILD DASHBOARD ===== */
+.child-dash {
+  background: var(--navy); min-height: 100vh; padding-top: 70px;
+}
+.child-dash-inner { max-width: 1100px; margin: 0 auto; padding: 48px 24px; }
+.child-hero-card {
+  background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05));
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 24px; padding: 48px; margin-bottom: 32px;
+  display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center;
+}
+.child-greeting {
+  font-size: 13px; color: var(--gold); font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px;
+}
+.child-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px; font-weight: 600; color: var(--white); line-height: 1.1;
+  margin-bottom: 12px;
+}
+.child-fund-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px; font-weight: 600; color: var(--gold);
+  margin-bottom: 6px;
+}
+.child-fund-label { color: rgba(255,255,255,0.5); font-size: 14px; }
+.child-countdown {
+  text-align: center;
+  background: rgba(255,255,255,0.05); border-radius: 20px; padding: 32px 40px;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+.countdown-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px; font-weight: 600; color: var(--gold); line-height: 1;
+}
+.countdown-label { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 8px; }
+.countdown-year { font-size: 14px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+/* Child tabs */
+.child-tabs {
+  display: flex; gap: 4px; margin-bottom: 32px;
+  background: rgba(255,255,255,0.04); border-radius: 10px; padding: 4px;
+}
+.child-tab {
+  flex: 1; padding: 10px; border-radius: 8px; cursor: pointer;
+  font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+  transition: all 0.2s; text-align: center; user-select: none;
+}
+.child-tab.active { background: var(--gold); color: var(--navy); font-weight: 600; }
+.child-tab-content { display: none; }
+.child-tab-content.active { display: block; }
+
+/* Milestone badges */
+.milestone-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.milestone-badge {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 16px; padding: 24px 16px; text-align: center;
+  transition: all 0.3s;
+}
+.milestone-badge.achieved { border-color: rgba(201,168,76,0.4); background: rgba(201,168,76,0.08); }
+.milestone-badge.achieved:hover { transform: translateY(-4px); }
+.milestone-icon { font-size: 32px; margin-bottom: 12px; }
+.milestone-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 600; color: var(--white); display: block;
+}
+.milestone-label { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+.milestone-achieved-tag {
+  margin-top: 10px; font-size: 10px; color: var(--gold);
+  font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+}
+
+/* Courses */
+.courses-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.course-year-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 16px; overflow: hidden; transition: all 0.3s;
+}
+.course-year-card:hover { border-color: rgba(201,168,76,0.35); }
+.course-year-card.current { border-color: rgba(201,168,76,0.45); background: rgba(201,168,76,0.06); }
+.course-year-header {
+  padding: 24px 28px; display: flex; align-items: center; gap: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  cursor: pointer; user-select: none;
+}
+.course-year-badge {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--navy); font-size: 12px; font-weight: 700;
+  padding: 4px 12px; border-radius: 20px; white-space: nowrap;
+}
+.course-year-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 600; color: var(--white);
+  flex: 1;
+}
+.course-progress-mini {
+  font-size: 12px; color: rgba(255,255,255,0.4);
+  white-space: nowrap;
+}
+.course-modules { padding: 0 28px 28px; margin-top: 20px; }
+.course-module {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.course-module:last-child { border-bottom: none; }
+.module-num {
+  width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+}
+.mod-done { background: var(--gold); color: var(--navy); }
+.mod-active { background: rgba(201,168,76,0.2); color: var(--gold); border: 1px solid var(--gold); }
+.mod-locked { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.3); }
+.module-info { flex: 1; }
+.module-title { font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 3px; }
+.module-desc { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.5; }
+.module-action {
+  font-size: 11px; color: var(--gold); font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.5px; margin-top: 6px;
+  cursor: pointer;
+}
+.locked-text { font-size: 11px; color: rgba(255,255,255,0.25); margin-top: 4px; }
+
+/* Contributors on child dash */
+.contributor-list { display: flex; flex-direction: column; gap: 12px; }
+.contributor-item {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.1);
+  border-radius: 12px; padding: 18px 22px;
+  display: flex; align-items: center; gap: 16px;
+}
+.contributor-avatar-big { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(201,168,76,0.3); }
+.contributor-name-big { font-size: 15px; font-weight: 600; color: var(--white); }
+.contributor-rel-big { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+.contributor-amount-big {
+  margin-left: auto;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px; font-weight: 600; color: var(--gold);
+}
+.contributor-date { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 2px; text-align: right; }
+
+/* Child fund chart */
+.child-chart-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 16px; padding: 28px; margin-bottom: 20px;
+}
+.child-chart-title { color: rgba(255,255,255,0.7); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+
+/* ===== MODAL / WAITLIST ===== */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(11,26,51,0.85); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal-box {
+  background: var(--white); border-radius: 20px; padding: 48px;
+  max-width: 480px; width: 90%; position: relative;
+  transform: translateY(20px); transition: transform 0.3s;
+}
+.modal-overlay.open .modal-box { transform: translateY(0); }
+.modal-close {
+  position: absolute; top: 20px; right: 24px;
+  font-size: 24px; cursor: pointer; color: var(--text-mid);
+  background: none; border: none;
+}
+.modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px; font-weight: 600; color: var(--navy); margin-bottom: 8px;
+}
+.modal-desc { color: var(--text-mid); font-size: 15px; margin-bottom: 32px; }
+.form-group { margin-bottom: 20px; }
+.form-label { font-size: 12px; font-weight: 600; color: var(--navy); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; display: block; }
+.form-input {
+  width: 100%; padding: 12px 16px; border: 1px solid #E5E7EB;
+  border-radius: 8px; font-size: 15px; font-family: 'Jost', sans-serif;
+  color: var(--navy); outline: none; transition: border 0.2s;
+}
+.form-input:focus { border-color: var(--gold); }
+.form-success {
+  text-align: center; display: none;
+}
+.form-success-icon { font-size: 48px; margin-bottom: 16px; }
+.form-success-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 600; color: var(--navy); margin-bottom: 8px;
+}
+.form-success-desc { color: var(--text-mid); font-size: 15px; }
+
+/* ===== SCROLL ANIMATIONS ===== */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .hero-content, .calculator-wrapper, .wellwisher-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero-title { font-size: 44px; }
+  .hero-faces-grid { display: none; }
+  .steps-grid, .plans-grid, .testimonials-grid, .faq-grid, .courses-grid { grid-template-columns: 1fr; }
+  .dash-stats-grid { grid-template-columns: 1fr 1fr; }
+  .milestone-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  nav .nav-links { display: none; }
+  .dashboard-layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: relative; top: 0; }
+  .dash-main { padding: 24px 20px; }
+  .child-hero-card { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" onclick="showPage('home')">
+    <div class="nav-logo-icon">🌱</div>
+    <span class="nav-logo-text">Trust Fund Baby</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="scrollToSection('how')">How It Works</a></li>
+    <li><a href="#" onclick="scrollToSection('plans')">Plans</a></li>
+    <li><a href="#" onclick="scrollToSection('calculator')">Calculator</a></li>
+    <li><a href="#" onclick="showPage('parent-dashboard')">Parent Login</a></li>
+    <li><a href="#" onclick="showPage('child-dashboard')">Child Portal</a></li>
+    <li><a href="#" class="nav-cta" onclick="openModal()">Start Free</a></li>
+  </ul>
+</nav>
+
+<!-- ===================== HOME PAGE ===================== -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          India's First Irrevocable Children's Trust Fund
+        </div>
+        <h1 class="hero-title">
+          Plant <em>today.</em><br>Harvest at 21.
+        </h1>
+        <p class="hero-subtitle">A gift that outlasts every toy, every trend, every moment.</p>
+        <p class="hero-desc">
+          Create a legally irrevocable trust fund for your child in 10 minutes. Free to start. 
+          Locked until they turn 21. The only structure that truly ring-fences money for your child — no one can touch it.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-gold" onclick="openModal()">Start Free — ₹0</button>
+          <button class="btn-outline" onclick="scrollToSection('how')">How It Works</button>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <span class="hero-stat-num">₹0</span>
+            <span class="hero-stat-label">To start</span>
+          </div>
+          <div>
+            <span class="hero-stat-num">21yr</span>
+            <span class="hero-stat-label">Lock-in period</span>
+          </div>
+          <div>
+            <span class="hero-stat-num">10 min</span>
+            <span class="hero-stat-label">To set up</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-floating-card">
+          <span class="floating-amount">₹63.2L</span>
+          <span class="floating-label">At age 21 · ₹5K/month</span>
+        </div>
+        <div class="hero-faces-grid">
+          <div class="face-card">
+            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=400&q=80" alt="Priya" onerror="this.src='https://i.pravatar.cc/300?img=5'">
+            <div class="face-card-overlay">
+              <span class="face-card-name">Priya & Rohan</span>
+              <span class="face-card-detail">Started Aarav's fund · Day 3</span>
+            </div>
+          </div>
+          <div class="face-card">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt="Vikram" onerror="this.src='https://i.pravatar.cc/300?img=12'">
+            <div class="face-card-overlay">
+              <span class="face-card-name">Vikram Mehta</span>
+              <span class="face-card-detail">Premium member · Mumbai</span>
+            </div>
+          </div>
+          <div class="face-card">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="Anjali" onerror="this.src='https://i.pravatar.cc/300?img=25'">
+            <div class="face-card-overlay">
+              <span class="face-card-name">Anjali Sharma</span>
+              <span class="face-card-detail">₹3,000/month SIP active</span>
+            </div>
+          </div>
+          <div class="face-card">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80" alt="Neha" onerror="this.src='https://i.pravatar.cc/300?img=32'">
+            <div class="face-card-overlay">
+              <span class="face-card-name">Neha & Arjun</span>
+              <span class="face-card-detail">Wellwisher contributions: 6</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section how-it-works" id="section-how">
+    <div class="max-w">
+      <div class="reveal">
+        <span class="section-label">Simple. Automated. Legal.</span>
+        <h2 class="section-title">Three steps. <br>Twenty-one years of security.</h2>
+      </div>
+      <div class="steps-grid reveal">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <div class="step-icon">📋</div>
+          <h3 class="step-title">Create the Trust</h3>
+          <p class="step-desc">Fill in your details, complete Aadhaar eKYC, upload your child's birth certificate. We auto-generate a legally valid irrevocable trust deed — no lawyer needed.</p>
+          <div class="step-timeline">⚡ 10 minutes · Fully automated</div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <div class="step-icon">🏛️</div>
+          <h3 class="step-title">We File Everything</h3>
+          <p class="step-desc">We auto-apply for your Trust PAN card via Protean API, arrange e-stamp paper, get the deed signed digitally — all while you go back to caring for your baby.</p>
+          <div class="step-timeline">⏱ 7–15 working days for PAN</div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <div class="step-icon">📈</div>
+          <h3 class="step-title">Watch It Grow</h3>
+          <p class="step-desc">Start your SIP in any mutual fund. Invite grandparents and family to contribute freely. Your child gets their own dashboard at 13. The corpus is theirs at 21.</p>
+          <div class="step-timeline">🔒 Locked. Protected. Growing.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="section calculator-section" id="section-calculator">
+    <div class="max-w">
+      <div class="reveal section-center">
+        <span class="section-label" style="color:var(--gold)">The Math Every Parent Needs</span>
+        <h2 class="section-title section-title-white">See what you're really<br><em style="font-style:italic;color:var(--gold)">building for them.</em></h2>
+      </div>
+      <div class="calculator-wrapper reveal">
+        <div class="calc-inputs">
+          <div class="calc-row">
+            <div class="calc-label">
+              <span>Monthly SIP amount</span>
+              <span class="calc-value" id="sip-display">₹5,000</span>
+            </div>
+            <input type="range" class="calc-slider" id="sip-slider" min="1000" max="50000" step="500" value="5000" oninput="updateCalc()">
+            <div style="display:flex;justify-content:space-between;margin-top:6px;color:rgba(255,255,255,0.3);font-size:11px;">
+              <span>₹1,000</span><span>₹50,000</span>
+            </div>
+          </div>
+          <div class="calc-row">
+            <div class="calc-label">
+              <span>Duration</span>
+              <span class="calc-value" id="yr-display">21 years</span>
+            </div>
+            <input type="range" class="calc-slider" id="yr-slider" min="5" max="21" step="1" value="21" oninput="updateCalc()">
+            <div style="display:flex;justify-content:space-between;margin-top:6px;color:rgba(255,255,255,0.3);font-size:11px;">
+              <span>5 yrs</span><span>21 yrs</span>
+            </div>
+          </div>
+          <div class="calc-row">
+            <div class="calc-label">
+              <span>Expected returns</span>
+              <span class="calc-value" id="ret-display">12%</span>
+            </div>
+            <input type="range" class="calc-slider" id="ret-slider" min="7" max="15" step="0.5" value="12" oninput="updateCalc()">
+            <div style="display:flex;justify-content:space-between;margin-top:6px;color:rgba(255,255,255,0.3);font-size:11px;">
+              <span>7% (PPF)</span><span>15% (Equity)</span>
+            </div>
+          </div>
+          <div style="margin-top:12px;padding:16px 20px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-radius:10px;">
+            <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:4px;">VS if you'd kept it in PPF (7.1%)</div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="color:rgba(255,255,255,0.7);font-size:14px;">PPF corpus</span>
+              <span id="ppf-val" style="font-family:'Cormorant Garamond',serif;font-size:22px;color:rgba(255,255,255,0.4);">₹28.3L</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;">
+              <span style="color:var(--gold);font-size:14px;font-weight:600;">Extra with Trust Fund</span>
+              <span id="extra-val" style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold-light);">+₹35L</span>
+            </div>
+          </div>
+        </div>
+        <div class="calc-results">
+          <div style="font-size:13px;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Projected corpus at 21</div>
+          <div class="result-main" id="result-main">₹63.2L</div>
+          <div class="result-sub" id="result-sub">Based on ₹5,000/month for 21 years at 12% p.a.</div>
+          <div class="result-breakdown">
+            <div class="breakdown-item">
+              <span class="breakdown-label">Total invested</span>
+              <span class="breakdown-val" id="invested-val">₹12.6L</span>
+            </div>
+            <div class="breakdown-item">
+              <span class="breakdown-label">Returns earned</span>
+              <span class="breakdown-val gold" id="returns-val">₹50.6L</span>
+            </div>
+            <div class="breakdown-item">
+              <span class="breakdown-label">Growth multiple</span>
+              <span class="breakdown-val gold" id="multiple-val">5.0×</span>
+            </div>
+            <div class="breakdown-item">
+              <span class="breakdown-label">Monthly needed</span>
+              <span class="breakdown-val" id="daily-val">₹167/day</span>
+            </div>
+          </div>
+          <button class="btn-gold" style="width:100%;margin-top:28px;" onclick="openModal()">Start This Plan Today</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANS -->
+  <section class="section plans-section" id="section-plans">
+    <div class="max-w reveal section-center">
+      <span class="section-label">Choose Your Plan</span>
+      <h2 class="section-title">One for every family.<br>Both legally ironclad.</h2>
+    </div>
+    <div class="plans-grid reveal">
+      <div class="plan-card plan-free">
+        <div class="plan-name">Free Plan</div>
+        <div class="plan-price">₹0</div>
+        <div class="plan-price-note">Free to start · 0.5% AUM/year platform fee</div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Irrevocable trust deed — auto-generated</li>
+          <li><span class="check">✓</span> Trust PAN card — auto-filed</li>
+          <li><span class="check">✓</span> All mutual funds (any AMC, any scheme)</li>
+          <li><span class="check">✓</span> Unlimited wellwisher contributions</li>
+          <li><span class="check">✓</span> Child dashboard at age 13</li>
+          <li><span class="check">✓</span> Financial literacy curriculum (age 13–18)</li>
+          <li><span class="check">✓</span> Emergency withdrawals (education & health)</li>
+          <li><span class="check">✓</span> Annual ITR filing — optional add-on ₹1,999</li>
+        </ul>
+        <div class="plan-cta">
+          <button class="btn-navy" onclick="openModal()" style="width:100%">Start Free Now</button>
+        </div>
+      </div>
+      <div class="plan-card plan-premium">
+        <div class="plan-badge">Most Complete</div>
+        <div class="plan-name" style="color:var(--white)">Premium Plan</div>
+        <div class="plan-price">₹15,000</div>
+        <div class="plan-price-note">One-time setup · 0.25% AUM/year (half the free rate)</div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Everything in Free Plan</li>
+          <li><span class="check">✓</span> Direct stocks in the trust's demat account</li>
+          <li><span class="check">✓</span> Fixed deposits in trust's name</li>
+          <li><span class="check">✓</span> Gold & Sovereign Gold Bonds</li>
+          <li><span class="check">✓</span> Lower platform fee — 0.25% vs 0.5%</li>
+          <li><span class="check">✓</span> Priority CA consultation included</li>
+          <li><span class="check">✓</span> Full investment mix: MF + Stocks + FD + Gold</li>
+          <li><span class="check">✓</span> Break-even vs Free Plan at just ₹25L AUM</li>
+        </ul>
+        <div class="plan-cta">
+          <button class="btn-gold" onclick="openModal()" style="width:100%">Go Premium</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WELLWISHER -->
+  <section class="section wellwisher-section">
+    <div class="max-w">
+      <div class="wellwisher-inner">
+        <div class="gift-card-preview">
+          <div class="gift-card-pattern"></div>
+          <div class="gift-cert-badge">Gift Certificate</div>
+          <div class="gift-card-icon">🎁</div>
+          <div class="gift-card-amount">₹10,000</div>
+          <div class="gift-card-child">For Aarav Mehta's Trust Fund</div>
+          <div class="gift-card-from">From: Nana & Nani · With love, always 💛</div>
+          <div style="margin-top:28px;padding-top:24px;border-top:1px solid rgba(201,168,76,0.2);">
+            <div style="font-size:11px;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Planted on</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:rgba(255,255,255,0.6);">13 March 2026</div>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-label">For Grandparents & Family</span>
+          <h2 class="section-title section-title-white">Stop gifting toys.<br>Gift a <em style="color:var(--gold);font-style:italic">future.</em></h2>
+          <p class="hero-desc" style="margin-bottom:32px;">
+            Anyone can contribute to a child's trust fund — no account needed. Grandparents, aunts, uncles, family friends. They get a beautiful digital gift certificate. The child sees their name forever.
+          </p>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:40px;">
+            <div style="display:flex;gap:12px;align-items:center;color:rgba(255,255,255,0.75);font-size:15px;">
+              <span style="color:var(--gold);font-size:20px;">✓</span> No account required for wellwishers
+            </div>
+            <div style="display:flex;gap:12px;align-items:center;color:rgba(255,255,255,0.75);font-size:15px;">
+              <span style="color:var(--gold);font-size:20px;">✓</span> Beautiful digital gift certificate auto-generated
+            </div>
+            <div style="display:flex;gap:12px;align-items:center;color:rgba(255,255,255,0.75);font-size:15px;">
+              <span style="color:var(--gold);font-size:20px;">✓</span> Contribution tracked with gifter's name forever
+            </div>
+            <div style="display:flex;gap:12px;align-items:center;color:rgba(255,255,255,0.75);font-size:15px;">
+              <span style="color:var(--gold);font-size:20px;">✓</span> PAN required only for contributions ≥ ₹50,000
+            </div>
+          </div>
+          <button class="btn-gold" onclick="openModal()">Share Your Child's Trust Link</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials-section">
+    <div class="max-w">
+      <div class="reveal section-center">
+        <span class="section-label">Parent Stories</span>
+        <h2 class="section-title">The moment it clicks.</h2>
+      </div>
+      <div class="testimonials-grid reveal">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"I'd been meaning to 'do something' for my daughter for 2 years. Trust Fund Baby made me stop saying I'll do it later. It was literally 10 minutes."</p>
+          <div class="testimonial-author">
+            <img class="testimonial-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Priya" onerror="this.src='https://i.pravatar.cc/100?img=5'">
+            <div>
+              <div class="testimonial-name">Priya Nair</div>
+              <div class="testimonial-role">Software Engineer · Bengaluru · 2 kids</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"I asked my CA about this. He said they'd charge ₹40,000 and 3 months. Trust Fund Baby did it in 10 minutes for zero rupees. I've recommended it to 6 friends."</p>
+          <div class="testimonial-author">
+            <img class="testimonial-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Vikram" onerror="this.src='https://i.pravatar.cc/100?img=12'">
+            <div>
+              <div class="testimonial-name">Vikram Shah</div>
+              <div class="testimonial-role">Business Owner · Mumbai · 1 child</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"My son's dadi contributed ₹25,000 on his first birthday through the wellwisher link. She cried reading the gift certificate. This is what gifting should feel like."</p>
+          <div class="testimonial-author">
+            <img class="testimonial-avatar" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80" alt="Meena" onerror="this.src='https://i.pravatar.cc/100?img=25'">
+            <div>
+              <div class="testimonial-name">Meena Krishnamurthy</div>
+              <div class="testimonial-role">Doctor · Chennai · New mother</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJECTIONS / FAQ -->
+  <section class="section faq-section">
+    <div class="max-w">
+      <div class="reveal section-center">
+        <span class="section-label">Your Questions, Answered</span>
+        <h2 class="section-title">We've heard every objection.<br>Here's the truth.</h2>
+      </div>
+      <div class="faq-grid reveal">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">
+            <span>"I can invest in my child's name directly."</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">A minor cannot legally own investments independently. Any account 'in the child's name' is operated by the parent — who can withdraw it anytime for anything. An irrevocable trust is the ONLY structure that legally ring-fences the money for the child. No parent, no creditor, no divorce can touch it. <strong>You can invest in their name. You cannot protect it in their name. That's what we do.</strong></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">
+            <span>"PPF and Sukanya are safer — government backed."</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">PPF allows partial withdrawal from year 7 and has a 15-year lock-in. Sukanya only covers girls. PPF returns 7.1% fixed — equity MF over 21 years historically returns 12–14%. On ₹5,000/month over 21 years: PPF ≈ ₹28L. Equity MF ≈ ₹55–65L. Neither creates a legal trust. <strong>PPF is a great savings tool. An irrevocable trust is a legal guarantee. They're not the same.</strong></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">
+            <span>"Why pay for something I can do myself?"</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">You technically can. But it requires: hiring a lawyer for Trust Deed (₹15,000–50,000), Trust PAN application (Form 49A — most CAs don't know this process), CKYC registration, annual ITR filing. Most parents who say 'I'll do it myself' are still saying it 3 years later. We do it in 10 minutes, automatically, free. <strong>You absolutely can. Most parents have been meaning to for 3 years.</strong></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">
+            <span>"What if Trust Fund Baby shuts down?"</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">The trust is not held by Trust Fund Baby. It is a separate legal entity. The investments are held directly with the AMC/broker/bank in the trust's name. If we shut down tomorrow, the trust exists. The money was never ours — it always belonged to your child. <strong>Your child's money is with the AMC, not with us. We just built it.</strong></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">
+            <span>"Can I withdraw for emergencies?"</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">Yes — for education and healthcare emergencies only, with CA/Trustee review and supporting documents. Educational withdrawals are capped at 25% of corpus; medical withdrawals at 50%. The remaining corpus continues compounding. This is designed to protect your child while acknowledging life happens.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">
+            <span>"What does my child get at 21?"</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">Full ownership of the entire corpus — the principal you invested plus all accumulated growth. The trust terminates and trustees transfer the entire fund to the child's bank account within 30 days of their 21st birthday. They also receive 6 years of financial literacy education (age 13–18) so they're ready to grow it further.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section style="background:var(--navy);padding:80px 5%;text-align:center;">
+    <div class="max-w reveal">
+      <div style="font-size:13px;color:var(--gold);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;">The best time to start was the day they were born</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;color:var(--white);margin-bottom:16px;">The second best time<br>is <em style="color:var(--gold);font-style:italic">today.</em></h2>
+      <p style="color:rgba(255,255,255,0.55);font-size:17px;max-width:500px;margin:0 auto 40px;line-height:1.7;">Free to start. 10 minutes. Legally protected for 21 years. Your child will either thank you or wish you'd started earlier.</p>
+      <button class="btn-gold" style="font-size:16px;padding:18px 48px;" onclick="openModal()">Create Your Child's Trust Fund</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="max-w">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo-text">🌱 Trust Fund Baby</div>
+          <div class="footer-tagline">Plant Today. Harvest at 21.</div>
+          <p class="footer-desc">India's first digital-first children's irrevocable trust fund platform. Free to start. Locked for 21 years. Built with love for every child's future.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Product</div>
+          <ul class="footer-links">
+            <li><a href="#">How It Works</a></li>
+            <li><a href="#">Free Plan</a></li>
+            <li><a href="#">Premium Plan</a></li>
+            <li><a href="#">Calculator</a></li>
+            <li><a href="#" onclick="showPage('child-dashboard')">Child Portal</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">For Families</div>
+          <ul class="footer-links">
+            <li><a href="#">For New Parents</a></li>
+            <li><a href="#">For Grandparents</a></li>
+            <li><a href="#">For Expecting Parents</a></li>
+            <li><a href="#">Gift a Trust Fund</a></li>
+            <li><a href="#">Baby Shower Gifting</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Legal & Support</div>
+          <ul class="footer-links">
+            <li><a href="#">Trust Deed FAQ</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">PMLA Compliance</a></li>
+            <li><a href="#">Contact Support</a></li>
+            <li><a href="#">NISM Disclosure</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 Trust Fund Baby. AMFI-registered MFD. All rights reserved. SEBI Compliance pending.</div>
+        <div class="footer-tagline-bottom">"Plant Today. Harvest at 21."</div>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- end home -->
+
+<!-- ===================== PARENT DASHBOARD ===================== -->
+<div id="page-parent-dashboard" class="page">
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-profile">
+        <img class="sidebar-avatar" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=100&q=80" alt="Priya" onerror="this.src='https://i.pravatar.cc/100?img=5'">
+        <div class="sidebar-name">Priya Mehta</div>
+        <div class="sidebar-plan">⭐ Premium Plan</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-nav-item active" onclick="showDashTab('overview')">
+          <span class="sidebar-nav-icon">🏠</span> Dashboard
+        </div>
+        <div class="sidebar-nav-item" onclick="showDashTab('progress')">
+          <span class="sidebar-nav-icon">📊</span> Onboarding Status
+        </div>
+        <div class="sidebar-nav-item" onclick="showDashTab('investments')">
+          <span class="sidebar-nav-icon">📈</span> Investments
+        </div>
+        <div class="sidebar-nav-item" onclick="showDashTab('contributions')">
+          <span class="sidebar-nav-icon">🎁</span> Contributions
+        </div>
+        <div class="sidebar-nav-item" onclick="showDashTab('share')">
+          <span class="sidebar-nav-icon">🔗</span> Share & Gift
+        </div>
+        <div class="sidebar-nav-item" onclick="showDashTab('documents')">
+          <span class="sidebar-nav-icon">📄</span> Documents
+        </div>
+        <div style="height:1px;background:rgba(255,255,255,0.06);margin:16px 14px;"></div>
+        <div class="sidebar-nav-item" onclick="showPage('child-dashboard')">
+          <span class="sidebar-nav-icon">👦</span> Child Portal (Age 13+)
+        </div>
+        <div class="sidebar-nav-item" onclick="showPage('home')">
+          <span class="sidebar-nav-icon">←</span> Back to Home
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="dash-main">
+      <!-- Overview Tab -->
+      <div id="dash-overview" class="dash-tab-content" style="display:block">
+        <div class="dash-header">
+          <div class="dash-greeting">Good morning, Priya 👋</div>
+          <div class="dash-date">Aarav's Trust Fund · Friday, 13 March 2026</div>
+        </div>
+
+        <div class="dash-stats-grid">
+          <div class="stat-card">
+            <div class="stat-card-label">Total Corpus</div>
+            <div class="stat-card-value">₹2.43L</div>
+            <div class="stat-card-change up">↑ 12.4% this year</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">Monthly SIP</div>
+            <div class="stat-card-value">₹5,000</div>
+            <div class="stat-card-change neutral">Active · HDFC Flexicap</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">Projected at 21</div>
+            <div class="stat-card-value">₹63.2L</div>
+            <div class="stat-card-change up">At 12% CAGR</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">Wellwisher Gifts</div>
+            <div class="stat-card-value">₹68K</div>
+            <div class="stat-card-change neutral">6 contributors</div>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <span class="chart-title">Fund Growth</span>
+            <div class="chart-tabs">
+              <div class="chart-tab active" onclick="setChartTab(this)">6M</div>
+              <div class="chart-tab" onclick="setChartTab(this)">1Y</div>
+              <div class="chart-tab" onclick="setChartTab(this)">All</div>
+            </div>
+          </div>
+          <div class="chart-area">
+            <svg class="mini-chart-svg" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.3"/>
+                  <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path d="M0,180 C50,175 80,165 120,155 C160,145 180,138 220,125 C260,112 290,105 330,90 C370,75 400,68 440,52 C480,36 520,28 560,18 L600,15 L600,200 L0,200 Z" fill="url(#chartGrad)"/>
+              <path d="M0,180 C50,175 80,165 120,155 C160,145 180,138 220,125 C260,112 290,105 330,90 C370,75 400,68 440,52 C480,36 520,28 560,18 L600,15" fill="none" stroke="#C9A84C" stroke-width="2.5"/>
+              <circle cx="600" cy="15" r="5" fill="#C9A84C"/>
+              <text x="10" y="195" font-size="10" fill="#9CA3AF">Mar</text>
+              <text x="110" y="195" font-size="10" fill="#9CA3AF">May</text>
+              <text x="210" y="195" font-size="10" fill="#9CA3AF">Jul</text>
+              <text x="310" y="195" font-size="10" fill="#9CA3AF">Sep</text>
+              <text x="410" y="195" font-size="10" fill="#9CA3AF">Nov</text>
+              <text x="510" y="195" font-size="10" fill="#9CA3AF">Jan</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="contributions-card">
+          <div class="table-header">
+            <span class="table-title">Recent Contributions</span>
+            <button class="btn-navy" style="padding:8px 18px;font-size:12px;" onclick="showDashTab('contributions')">View All</button>
+          </div>
+          <table class="contrib-table">
+            <thead>
+              <tr>
+                <th>From</th><th>Amount</th><th>Date</th><th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="contrib-name-cell"><img class="contrib-avatar" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=80&q=80" alt="" onerror="this.src='https://i.pravatar.cc/80?img=8'"><div><div>Rohan Mehta</div><div class="contrib-rel">Father · Monthly SIP</div></div></div></td>
+                <td><div class="contrib-amount">₹5,000</div></td>
+                <td>1 Mar 2026</td>
+                <td><span class="badge badge-green">Active</span></td>
+              </tr>
+              <tr>
+                <td><div class="contrib-name-cell"><img class="contrib-avatar" src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=80&q=80" alt="" onerror="this.src='https://i.pravatar.cc/80?img=70'"><div><div>Nana & Nani</div><div class="contrib-rel">Grandparents · One-time gift</div></div></div></td>
+                <td><div class="contrib-amount">₹25,000</div></td>
+                <td>14 Feb 2026</td>
+                <td><span class="badge badge-gold">Gift</span></td>
+              </tr>
+              <tr>
+                <td><div class="contrib-name-cell"><img class="contrib-avatar" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=80&q=80" alt="" onerror="this.src='https://i.pravatar.cc/80?img=15'"><div><div>Rajiv Nair</div><div class="contrib-rel">Uncle · Birthday gift</div></div></div></td>
+                <td><div class="contrib-amount">₹10,000</div></td>
+                <td>22 Jan 2026</td>
+                <td><span class="badge badge-gold">Gift</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Progress Tab -->
+      <div id="dash-progress" class="dash-tab-content" style="display:none">
+        <div class="dash-header">
+          <div class="dash-greeting">Onboarding Status</div>
+          <div class="dash-date">Aarav's Trust Fund · Setup Complete ✅</div>
+        </div>
+        <div class="progress-card">
+          <div class="progress-title">Trust Fund Setup Progress</div>
+          <div class="progress-steps" style="position:relative;padding:0 20px;">
+            <div class="progress-line"><div class="progress-line-fill" style="--fill:100%"></div></div>
+            <div class="progress-step"><div class="progress-step-circle ps-done">✓</div><div class="progress-step-label">Account<br>Created</div></div>
+            <div class="progress-step"><div class="progress-step-circle ps-done">✓</div><div class="progress-step-label">Stamp Paper<br>Ordered</div></div>
+            <div class="progress-step"><div class="progress-step-circle ps-done">✓</div><div class="progress-step-label">Deed<br>Signed</div></div>
+            <div class="progress-step"><div class="progress-step-circle ps-done">✓</div><div class="progress-step-label">PAN<br>Applied</div></div>
+            <div class="progress-step"><div class="progress-step-circle ps-done">✓</div><div class="progress-step-label">PAN<br>Received</div></div>
+            <div class="progress-step"><div class="progress-step-circle ps-done">✓</div><div class="progress-step-label">SIP<br>Active</div></div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;">
+          <div class="stat-card">
+            <div class="stat-card-label">Trust Name</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--navy);margin-top:8px;">Aarav Mehta Trust</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">Trust PAN</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--navy);margin-top:8px;">AAATX4521K</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">Unlock Date</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--navy);margin-top:8px;">15 Mar 2047</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">Trust Deed</div>
+            <div style="margin-top:8px;"><button class="btn-navy" style="padding:8px 16px;font-size:12px;" onclick="alert('Downloading trust deed PDF...')">📄 Download PDF</button></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Investments Tab -->
+      <div id="dash-investments" class="dash-tab-content" style="display:none">
+        <div class="dash-header">
+          <div class="dash-greeting">Investment Portfolio</div>
+          <div class="dash-date">Total AUM: ₹2,43,500 · As of 13 Mar 2026</div>
+        </div>
+        <div class="contributions-card" style="margin-bottom:20px;">
+          <div class="table-header"><span class="table-title">Holdings</span></div>
+          <table class="contrib-table">
+            <thead><tr><th>Fund / Asset</th><th>Value</th><th>Invested</th><th>Gain</th><th>Weight</th></tr></thead>
+            <tbody>
+              <tr><td><strong>HDFC Flexicap Fund</strong><br><span style="font-size:11px;color:var(--text-mid)">Mutual Fund · Growth</span></td><td><div class="contrib-amount">₹1,48,200</div></td><td>₹1,20,000</td><td style="color:var(--green)">+23.5%</td><td>60.9%</td></tr>
+              <tr><td><strong>Mirae Asset ELSS</strong><br><span style="font-size:11px;color:var(--text-mid)">Mutual Fund · ELSS</span></td><td><div class="contrib-amount">₹55,300</div></td><td>₹45,000</td><td style="color:var(--green)">+22.9%</td><td>22.7%</td></tr>
+              <tr><td><strong>HDFC Bank FD</strong><br><span style="font-size:11px;color:var(--text-mid)">Fixed Deposit · 3yr</span></td><td><div class="contrib-amount">₹27,500</div></td><td>₹25,000</td><td style="color:var(--green)">+10.0%</td><td>11.3%</td></tr>
+              <tr><td><strong>SGB 2024-25</strong><br><span style="font-size:11px;color:var(--text-mid)">Sovereign Gold Bond</span></td><td><div class="contrib-amount">₹12,500</div></td><td>₹10,000</td><td style="color:var(--green)">+25.0%</td><td>5.1%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Contributions Tab -->
+      <div id="dash-contributions" class="dash-tab-content" style="display:none">
+        <div class="dash-header">
+          <div class="dash-greeting">All Contributions</div>
+          <div class="dash-date">6 wellwishers · ₹68,000 gifted total</div>
+        </div>
+        <div class="contributions-card">
+          <table class="contrib-table">
+            <thead><tr><th>From</th><th>Amount</th><th>Date</th><th>Type</th></tr></thead>
+            <tbody>
+              <tr><td><div class="contrib-name-cell"><img class="contrib-avatar" src="https://i.pravatar.cc/80?img=8" alt=""><div><div>Rohan Mehta (Father)</div><div class="contrib-rel">Monthly SIP · Active</div></div></div></td><td><div class="contrib-amount">₹5,000/mo</div></td><td>Since Aug 2024</td><td><span class="badge badge-green">SIP</span></td></tr>
+              <tr><td><div class="contrib-name-cell"><img class="contrib-avatar" src="https://i.pravatar.cc/80?img=70" alt=""><div><div>Pradeep & Sunita Mehta</div><div class="contrib-rel">Nana & Nani (Paternal)</div></div></div></td><td><div class="contrib-amount">₹25,000</div></td><td>14 Feb 2026</td><td><span class="badge badge-gold">Gift</span></td></tr>
+              <tr><td><div class="contrib-name-cell"><img class="contrib-avatar" src="https://i.pravatar.cc/80?img=15" alt=""><div><div>Rajiv Nair</div><div class="contrib-rel">Mama (Uncle)</div></div></div></td><td><div class="contrib-amount">₹10,000</div></td><td>22 Jan 2026</td><td><span class="badge badge-gold">Gift</span></td></tr>
+              <tr><td><div class="contrib-name-cell"><img class="contrib-avatar" src="https://i.pravatar.cc/80?img=45" alt=""><div><div>Lakshmi & Suresh Nair</div><div class="contrib-rel">Ajja & Ajji (Maternal)</div></div></div></td><td><div class="contrib-amount">₹20,000</div></td><td>15 Aug 2025</td><td><span class="badge badge-gold">Gift</span></td></tr>
+              <tr><td><div class="contrib-name-cell"><img class="contrib-avatar" src="https://i.pravatar.cc/80?img=55" alt=""><div><div>Anita Shah</div><div class="contrib-rel">Friend of family</div></div></div></td><td><div class="contrib-amount">₹5,000</div></td><td>15 Aug 2025</td><td><span class="badge badge-gold">Gift</span></td></tr>
+              <tr><td><div class="contrib-name-cell"><img class="contrib-avatar" src="https://i.pravatar.cc/80?img=62" alt=""><div><div>Deepak Mehta</div><div class="contrib-rel">Chacha (Uncle)</div></div></div></td><td><div class="contrib-amount">₹8,000</div></td><td>12 Dec 2024</td><td><span class="badge badge-gold">Gift</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Share Tab -->
+      <div id="dash-share" class="dash-tab-content" style="display:none">
+        <div class="dash-header">
+          <div class="dash-greeting">Share & Gift</div>
+          <div class="dash-date">Let family contribute to Aarav's future</div>
+        </div>
+        <div class="share-box">
+          <div class="share-box-title">Aarav's Wellwisher Link 🎁</div>
+          <div class="share-box-desc">Share this link with grandparents, relatives & friends. They can contribute without creating an account.</div>
+          <div class="share-input-wrap">
+            <input class="share-input" id="share-url" value="trustfundbaby.in/gift/aarav-mehta-2024" readonly>
+            <button class="share-copy-btn" onclick="copyLink()">Copy Link</button>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+          <button onclick="alert('Opening WhatsApp share...')" style="background:var(--white);border:1px solid #E5E7EB;border-radius:12px;padding:20px;cursor:pointer;text-align:center;">
+            <div style="font-size:32px;margin-bottom:8px;">📱</div>
+            <div style="font-weight:600;color:var(--navy);font-size:14px;">Share on WhatsApp</div>
+          </button>
+          <button onclick="alert('Downloading gift card...')" style="background:var(--white);border:1px solid #E5E7EB;border-radius:12px;padding:20px;cursor:pointer;text-align:center;">
+            <div style="font-size:32px;margin-bottom:8px;">🎴</div>
+            <div style="font-weight:600;color:var(--navy);font-size:14px;">Download Gift Card</div>
+          </button>
+          <button onclick="alert('Sending email invite...')" style="background:var(--white);border:1px solid #E5E7EB;border-radius:12px;padding:20px;cursor:pointer;text-align:center;">
+            <div style="font-size:32px;margin-bottom:8px;">✉️</div>
+            <div style="font-weight:600;color:var(--navy);font-size:14px;">Email Invites</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Documents Tab -->
+      <div id="dash-documents" class="dash-tab-content" style="display:none">
+        <div class="dash-header">
+          <div class="dash-greeting">Documents</div>
+          <div class="dash-date">All legal and compliance documents</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="background:var(--white);border:1px solid #E5E7EB;border-radius:12px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:16px;">
+              <span style="font-size:32px;">📄</span>
+              <div><div style="font-weight:600;color:var(--navy);">Trust Deed — Aarav Mehta Trust</div><div style="font-size:12px;color:var(--text-mid);">Executed · 5 Aug 2024 · Irrevocable</div></div>
+            </div>
+            <button class="btn-navy" style="padding:8px 18px;font-size:12px;">Download</button>
+          </div>
+          <div style="background:var(--white);border:1px solid #E5E7EB;border-radius:12px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:16px;">
+              <span style="font-size:32px;">🪪</span>
+              <div><div style="font-weight:600;color:var(--navy);">Trust PAN Card — AAATX4521K</div><div style="font-size:12px;color:var(--text-mid);">Issued · 22 Aug 2024 · Protean eGov</div></div>
+            </div>
+            <button class="btn-navy" style="padding:8px 18px;font-size:12px;">Download</button>
+          </div>
+          <div style="background:var(--white);border:1px solid #E5E7EB;border-radius:12px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:16px;">
+              <span style="font-size:32px;">📊</span>
+              <div><div style="font-weight:600;color:var(--navy);">Annual Statement FY 2024–25</div><div style="font-size:12px;color:var(--text-mid);">Generated · April 2025 · ITR not filed (opted out)</div></div>
+            </div>
+            <button class="btn-navy" style="padding:8px 18px;font-size:12px;">Download</button>
+          </div>
+          <div style="background:var(--white);border:1px solid rgba(201,168,76,0.3);border-radius:12px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:16px;">
+              <span style="font-size:32px;">📑</span>
+              <div><div style="font-weight:600;color:var(--navy);">ITR Filing FY 2025–26 (Add-On)</div><div style="font-size:12px;color:var(--gold);">Due by July 2026 · ₹1,999 add-on</div></div>
+            </div>
+            <button class="btn-gold" style="padding:8px 18px;font-size:12px;">File ITR ₹1,999</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div><!-- end parent dashboard -->
+
+<!-- ===================== CHILD DASHBOARD ===================== -->
+<div id="page-child-dashboard" class="page">
+  <div class="child-dash">
+    <!-- Child Nav -->
+    <nav style="background:rgba(11,26,51,0.98);">
+      <a class="nav-logo" onclick="showPage('home')">
+        <div class="nav-logo-icon">🌱</div>
+        <span class="nav-logo-text">Trust Fund Baby</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <span style="font-size:12px;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:1px;">Child Portal · Age 13+</span>
+        <button class="btn-outline" style="font-size:12px;padding:7px 16px;" onclick="showPage('parent-dashboard')">Parent View</button>
+      </div>
+    </nav>
+
+    <div class="child-dash-inner">
+      <!-- Hero Card -->
+      <div class="child-hero-card">
+        <div>
+          <div class="child-greeting">Hello, Aarav 👋 Your future is growing</div>
+          <div class="child-name">Aarav Mehta</div>
+          <div class="child-fund-amount">₹2,43,500</div>
+          <div class="child-fund-label">In your trust fund today · Planted at birth by your family 💛</div>
+          <div style="margin-top:24px;display:flex;gap:24px;">
+            <div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;">Started</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--white);font-weight:600;">5 Aug 2024</div>
+            </div>
+            <div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;">Contributors</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--white);font-weight:600;">6 people</div>
+            </div>
+            <div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;">Your age now</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--white);font-weight:600;">13 years</div>
+            </div>
+          </div>
+        </div>
+        <div class="child-countdown">
+          <div style="font-size:12px;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Years to unlock</div>
+          <div class="countdown-num">8</div>
+          <div class="countdown-label">years until you turn 21</div>
+          <div class="countdown-year">15 March 2034</div>
+          <div style="margin-top:20px;padding:14px 20px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:10px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);">Projected at 21</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);font-weight:600;">₹63.2L</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Child Tabs -->
+      <div class="child-tabs">
+        <div class="child-tab active" onclick="showChildTab('fund', this)">📈 My Fund</div>
+        <div class="child-tab" onclick="showChildTab('courses', this)">📚 Learn & Earn</div>
+        <div class="child-tab" onclick="showChildTab('contributors', this)">💛 Who Contributed</div>
+        <div class="child-tab" onclick="showChildTab('milestones', this)">🏆 Milestones</div>
+      </div>
+
+      <!-- Fund Tab -->
+      <div class="child-tab-content active" id="child-fund">
+        <div class="child-chart-card">
+          <div class="child-chart-title">Fund Growth Since Birth</div>
+          <svg viewBox="0 0 600 160" style="width:100%;height:160px;" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="childChartGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,155 C60,152 100,148 150,140 C200,132 240,125 290,112 C340,99 380,88 430,72 C480,56 520,42 560,28 L600,20 L600,160 L0,160 Z" fill="url(#childChartGrad)"/>
+            <path d="M0,155 C60,152 100,148 150,140 C200,132 240,125 290,112 C340,99 380,88 430,72 C480,56 520,42 560,28 L600,20" fill="none" stroke="#C9A84C" stroke-width="2"/>
+            <text x="5" y="155" font-size="9" fill="rgba(255,255,255,0.3)">2024</text>
+            <text x="155" y="155" font-size="9" fill="rgba(255,255,255,0.3)">2025</text>
+            <text x="295" y="155" font-size="9" fill="rgba(255,255,255,0.3)">2026</text>
+          </svg>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:14px;padding:24px;text-align:center;">
+            <div style="font-size:28px;margin-bottom:8px;">💰</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);font-weight:600;">₹1,75,000</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:4px;">Total contributed</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:14px;padding:24px;text-align:center;">
+            <div style="font-size:28px;margin-bottom:8px;">📈</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);font-weight:600;">₹68,500</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:4px;">Returns earned</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:14px;padding:24px;text-align:center;">
+            <div style="font-size:28px;margin-bottom:8px;">🌱</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);font-weight:600;">39.1%</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:4px;">Total growth</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Courses Tab -->
+      <div class="child-tab-content" id="child-courses">
+        <div style="margin-bottom:24px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--white);font-weight:600;margin-bottom:8px;">Your Financial Education Journey 📚</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.5);">6 years · 72 modules · Built just for you. The money you'll unlock at 21 — let's make sure you're ready to grow it.</div>
+        </div>
+        <div class="courses-grid">
+
+          <!-- Year 1 - Age 13 (CURRENT) -->
+          <div class="course-year-card current">
+            <div class="course-year-header" onclick="toggleCourse(this)">
+              <div class="course-year-badge">Age 13 · Year 1</div>
+              <div class="course-year-title">Money Basics</div>
+              <div class="course-progress-mini">3/12 ✅</div>
+              <span style="color:var(--gold);font-size:18px;">▾</span>
+            </div>
+            <div class="course-modules">
+              <div class="course-module">
+                <div class="module-num mod-done">✓</div>
+                <div class="module-info">
+                  <div class="module-title">What is money, really?</div>
+                  <div class="module-desc">How money was invented, why it has value, and the difference between spending and saving.</div>
+                  <div class="module-action">Completed ✓</div>
+                </div>
+              </div>
+              <div class="course-module">
+                <div class="module-num mod-done">✓</div>
+                <div class="module-info">
+                  <div class="module-title">Your trust fund explained</div>
+                  <div class="module-desc">What an irrevocable trust is, why your parents chose it, and how it works.</div>
+                  <div class="module-action">Completed ✓</div>
+                </div>
+              </div>
+              <div class="course-module">
+                <div class="module-num mod-done">✓</div>
+                <div class="module-info">
+                  <div class="module-title">The magic of compound interest</div>
+                  <div class="module-desc">Why ₹5,000 today is worth more than ₹5,000 ten years from now — with examples from your own fund.</div>
+                  <div class="module-action">Completed ✓</div>
+                </div>
+              </div>
+              <div class="course-module">
+                <div class="module-num mod-active">4</div>
+                <div class="module-info">
+                  <div class="module-title">Saving vs. spending — the 3-jar method</div>
+                  <div class="module-desc">A simple system for managing your own pocket money.</div>
+                  <div class="module-action" onclick="alert('Opening module 4...')">▶ Continue Learning</div>
+                </div>
+              </div>
+              <div class="course-module">
+                <div class="module-num mod-locked">5</div>
+                <div class="module-info">
+                  <div class="module-title">What your ₹2.43L will become</div>
+                  <div class="module-desc">Calculator deep-dive with your own fund's actual numbers.</div>
+                  <div class="locked-text">🔒 Complete Module 4 to unlock</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Year 2 - Age 14 -->
+          <div class="course-year-card">
+            <div class="course-year-header" onclick="toggleCourse(this)">
+              <div class="course-year-badge">Age 14 · Year 2</div>
+              <div class="course-year-title">How Markets Work</div>
+              <div class="course-progress-mini">0/12 🔒</div>
+              <span style="color:rgba(255,255,255,0.3);font-size:18px;">▾</span>
+            </div>
+            <div class="course-modules" style="display:none">
+              <div class="course-module">
+                <div class="module-num mod-locked">1</div>
+                <div class="module-info"><div class="module-title">What is a mutual fund?</div><div class="locked-text">🔒 Unlocks when you turn 14</div></div>
+              </div>
+              <div class="course-module">
+                <div class="module-num mod-locked">2</div>
+                <div class="module-info"><div class="module-title">How stock markets work</div><div class="locked-text">🔒 Unlocks when you turn 14</div></div>
+              </div>
+              <div class="course-module">
+                <div class="module-num mod-locked">3</div>
+                <div class="module-info"><div class="module-title">Reading your fund statement</div><div class="locked-text">🔒 Unlocks when you turn 14</div></div>
+              </div>
+              <div class="course-module">
+                <div class="module-num mod-locked">4</div>
+                <div class="module-info"><div class="module-title">NAV, SIP and how they work together</div><div class="locked-text">🔒 Unlocks when you turn 14</div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Year 3 - Age 15 -->
+          <div class="course-year-card">
+            <div class="course-year-header" onclick="toggleCourse(this)">
+              <div class="course-year-badge">Age 15 · Year 3</div>
+              <div class="course-year-title">Risk & Reward</div>
+              <div class="course-progress-mini">0/12 🔒</div>
+              <span style="color:rgba(255,255,255,0.3);font-size:18px;">▾</span>
+            </div>
+            <div class="course-modules" style="display:none">
+              <div class="course-module">
+                <div class="module-num mod-locked">1</div>
+                <div class="module-info"><div class="module-title">Stocks vs bonds vs gold vs FDs</div><div class="locked-text">🔒 Unlocks when you turn 15</div></div>
+              </div>
+              <div class="course-module">
+                <div class="module-num mod-locked">2</div>
+                <div class="module-info"><div class="module-title">Understanding risk — what it really means</div><div class="locked-text">🔒 Unlocks when you turn 15</div></div>
+              </div>
+              <div class="course-module">
+                <div class="module-num mod-locked">3</div>
+                <div class="module-info"><div class="module-title">Your fund's investment mix explained</div><div class="locked-text">🔒 Unlocks when you turn 15</div></div>
+              </div>
+              <div class="course-module">
+                <div class="module-num mod-locked">4</div>
+                <div class="module-info"><div class="module-title">Why diversification matters</div><div class="locked-text">🔒 Unlocks when you turn 15</div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Year 4 - Age 16 -->
+          <div class="course-year-card">
+            <div class="course-year-header" onclick="toggleCourse(this)">
+              <div class="course-year-badge">Age 16 · Year 4</div>
+              <div class="course-year-title">Personal Finance</div>
+              <div class="course-progress-mini">0/12 🔒</div>
+              <span style="color:rgba(255,255,255,0.3);font-size:18px;">▾</span>
+            </div>
+            <div class="course-modules" style="display:none">
+              <div class="course-module">
+                <div class="module-num mod-locked">1</div>
+                <div class="module-info"><div class="module-title">Budgeting your first salary</div><div class="locked-text">🔒 Unlocks when you turn 16</div></div>
+              </div>
+              <div class="course-module">
+                <div class="module-num mod-locked">2</div>
+                <div class="module-info"><div class="module-title">Good debt vs bad debt</div><div class="locked-text">🔒 Unlocks when you turn 16</div></div>
+              </div>
+              <div class="course-module">
+                <div class="module-num mod-locked">3</div>
+                <div class="module-info"><div class="module-title">How to manage ₹65L when you get it at 21</div><div class="locked-text">🔒 Unlocks when you turn 16</div></div>
+              </div>
+              <div class="course-module">
+                <div class="module-num mod-locked">4</div>
+                <div class="module-info"><div class="module-title">Emergency fund — why it's the first step</div><div class="locked-text">🔒 Unlocks when you turn 16</div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Year 5 - Age 17 -->
+          <div class="course-year-card">
+            <div class="course-year-header" onclick="toggleCourse(this)">
+              <div class="course-year-badge">Age 17 · Year 5</div>
+              <div class="course-year-title">Taxes & Law in India</div>
+              <div class="course-progress-mini">0/12 🔒</div>
+              <span style="color:rgba(255,255,255,0.3);font-size:18px;">▾</span>
+            </div>
+            <div class="course-modules" style="display:none">
+              <div class="course-module">
+                <div class="module-num mod-locked">1</div>
+                <div class="module-info"><div class="module-title">How income tax works in India</div><div class="locked-text">🔒 Unlocks when you turn 17</div></div>
+              </div>
+              <div class="course-module">
+                <div class="module-num mod-locked">2</div>
+                <div class="module-info"><div class="module-title">Filing your first ITR (step by step)</div><div class="locked-text">🔒 Unlocks when you turn 17</div></div>
+              </div>
+              <div class="course-module">
+                <div class="module-num mod-locked">3</div>
+                <div class="module-info"><div class="module-title">What happens to the corpus tax at 21?</div><div class="locked-text">🔒 Unlocks when you turn 17</div></div>
+              </div>
+              <div class="course-module">
+                <div class="module-num mod-locked">4</div>
+                <div class="module-info"><div class="module-title">Long-term capital gains — the basics</div><div class="locked-text">🔒 Unlocks when you turn 17</div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Year 6 - Age 18 -->
+          <div class="course-year-card">
+            <div class="course-year-header" onclick="toggleCourse(this)">
+              <div class="course-year-badge">Age 18 · Year 6</div>
+              <div class="course-year-title">Investing as an Adult</div>
+              <div class="course-progress-mini">0/12 🔒</div>
+              <span style="color:rgba(255,255,255,0.3);font-size:18px;">▾</span>
+            </div>
+            <div class="course-modules" style="display:none">
+              <div class="course-module">
+                <div class="module-num mod-locked">1</div>
+                <div class="module-info"><div class="module-title">Investment planning at 21 — the roadmap</div><div class="locked-text">🔒 Unlocks when you turn 18</div></div>
+              </div>
+              <div class="course-module">
+                <div class="module-num mod-locked">2</div>
+                <div class="module-info"><div class="module-title">How to grow your ₹65L corpus further</div><div class="locked-text">🔒 Unlocks when you turn 18</div></div>
+              </div>
+              <div class="course-module">
+                <div class="module-num mod-locked">3</div>
+                <div class="module-info"><div class="module-title">Real estate vs. equity — a 30-year view</div><div class="locked-text">🔒 Unlocks when you turn 18</div></div>
+              </div>
+              <div class="course-module">
+                <div class="module-num mod-locked">4</div>
+                <div class="module-info"><div class="module-title">Starting your own child's trust fund someday</div><div class="locked-text">🔒 Unlocks when you turn 18</div></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Contributors Tab -->
+      <div class="child-tab-content" id="child-contributors">
+        <div style="margin-bottom:24px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--white);font-weight:600;margin-bottom:8px;">Everyone who planted a seed for you 💛</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.5);">These 6 people believed in your future before you could even understand what money was.</div>
+        </div>
+        <div class="contributor-list">
+          <div class="contributor-item">
+            <img class="contributor-avatar-big" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=100&q=80" alt="Priya" onerror="this.src='https://i.pravatar.cc/100?img=5'">
+            <div><div class="contributor-name-big">Priya Mehta (Aai)</div><div class="contributor-rel-big">Mother · "My biggest investment was always you."</div></div>
+            <div style="margin-left:auto;text-align:right;"><div class="contributor-amount-big">₹90,000+</div><div class="contributor-date">Monthly SIP · Since Aug 2024</div></div>
+          </div>
+          <div class="contributor-item">
+            <img class="contributor-avatar-big" src="https://i.pravatar.cc/100?img=8" alt="">
+            <div><div class="contributor-name-big">Rohan Mehta (Baba)</div><div class="contributor-rel-big">Father · "Everything we do is for you, Aarav."</div></div>
+            <div style="margin-left:auto;text-align:right;"><div class="contributor-amount-big">₹10,000</div><div class="contributor-date">One-time · 12 Dec 2024</div></div>
+          </div>
+          <div class="contributor-item">
+            <img class="contributor-avatar-big" src="https://i.pravatar.cc/100?img=70" alt="">
+            <div><div class="contributor-name-big">Pradeep & Sunita Mehta</div><div class="contributor-rel-big">Nana & Nani · "Loving you from 700km away."</div></div>
+            <div style="margin-left:auto;text-align:right;"><div class="contributor-amount-big">₹45,000</div><div class="contributor-date">3 contributions · Feb 2025 – Feb 2026</div></div>
+          </div>
+          <div class="contributor-item">
+            <img class="contributor-avatar-big" src="https://i.pravatar.cc/100?img=45" alt="">
+            <div><div class="contributor-name-big">Lakshmi & Suresh Nair</div><div class="contributor-rel-big">Ajja & Ajji · "Our greatest joy."</div></div>
+            <div style="margin-left:auto;text-align:right;"><div class="contributor-amount-big">₹20,000</div><div class="contributor-date">1st Birthday · Aug 2025</div></div>
+          </div>
+          <div class="contributor-item">
+            <img class="contributor-avatar-big" src="https://i.pravatar.cc/100?img=15" alt="">
+            <div><div class="contributor-name-big">Rajiv Nair</div><div class="contributor-rel-big">Mama (Uncle) · "No more soft toys. Here's something real."</div></div>
+            <div style="margin-left:auto;text-align:right;"><div class="contributor-amount-big">₹10,000</div><div class="contributor-date">Diwali 2025</div></div>
+          </div>
+          <div class="contributor-item">
+            <img class="contributor-avatar-big" src="https://i.pravatar.cc/100?img=55" alt="">
+            <div><div class="contributor-name-big">Anita Shah (Family Friend)</div><div class="contributor-rel-big">Auntie Anita · "Wishing you the brightest future!"</div></div>
+            <div style="margin-left:auto;text-align:right;"><div class="contributor-amount-big">₹5,000</div><div class="contributor-date">Baby Shower · Aug 2024</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestones Tab -->
+      <div class="child-tab-content" id="child-milestones">
+        <div style="margin-bottom:24px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--white);font-weight:600;margin-bottom:8px;">Your Milestone Journey 🏆</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.5);">Every milestone your fund crosses is a celebration of your family's love and patience.</div>
+        </div>
+        <div class="milestone-grid">
+          <div class="milestone-badge achieved">
+            <div class="milestone-icon">🌱</div>
+            <span class="milestone-amount">₹1L</span>
+            <div class="milestone-label">First lakh</div>
+            <div class="milestone-achieved-tag">✓ Achieved · Jun 2025</div>
+          </div>
+          <div class="milestone-badge achieved">
+            <div class="milestone-icon">🌿</div>
+            <span class="milestone-amount">₹2L</span>
+            <div class="milestone-label">Growing strong</div>
+            <div class="milestone-achieved-tag">✓ Achieved · Feb 2026</div>
+          </div>
+          <div class="milestone-badge">
+            <div class="milestone-icon">🌳</div>
+            <span class="milestone-amount">₹5L</span>
+            <div class="milestone-label">Taking root</div>
+            <div class="milestone-label" style="margin-top:8px;color:rgba(255,255,255,0.35);font-size:11px;">ETA: Dec 2027</div>
+          </div>
+          <div class="milestone-badge">
+            <div class="milestone-icon">✨</div>
+            <span class="milestone-amount">₹10L</span>
+            <div class="milestone-label">Double digits</div>
+            <div class="milestone-label" style="margin-top:8px;color:rgba(255,255,255,0.35);font-size:11px;">ETA: 2029</div>
+          </div>
+          <div class="milestone-badge">
+            <div class="milestone-icon">🏆</div>
+            <span class="milestone-amount">₹25L</span>
+            <div class="milestone-label">Quarter crore</div>
+            <div class="milestone-label" style="margin-top:8px;color:rgba(255,255,255,0.35);font-size:11px;">ETA: 2032</div>
+          </div>
+        </div>
+        <div style="margin-top:24px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-radius:16px;padding:32px;text-align:center;">
+          <div style="font-size:36px;margin-bottom:12px;">🎂</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--white);font-weight:600;margin-bottom:8px;">The Ultimate Milestone</div>
+          <div style="font-size:15px;color:rgba(255,255,255,0.5);margin-bottom:20px;">On 15 March 2034 — your 21st birthday — the entire corpus transfers to you. Your family's love, compounded.</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:52px;color:var(--gold);font-weight:600;">~₹63.2L</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.35);margin-top:8px;">Projected corpus · Subject to market performance</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div><!-- end child dashboard -->
+
+<!-- WAITLIST MODAL -->
+<div class="modal-overlay" id="waitlist-modal" onclick="closeModalOutside(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="form-view">
+      <div class="modal-title">Start Your Child's<br>Trust Fund</div>
+      <p class="modal-desc">Free to start. 10 minutes. Legally irrevocable. Join the waitlist and we'll reach out as soon as we're live.</p>
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input class="form-input" type="text" placeholder="Priya Mehta">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Mobile Number</label>
+        <input class="form-input" type="tel" placeholder="+91 98765 43210">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Child's Name</label>
+        <input class="form-input" type="text" placeholder="Aarav">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Plan of Interest</label>
+        <select class="form-input" style="cursor:pointer">
+          <option>Free Plan (₹0 to start)</option>
+          <option>Premium Plan (₹15,000 one-time)</option>
+          <option>I'd like to learn more first</option>
+        </select>
+      </div>
+      <button class="btn-gold" style="width:100%;font-size:15px;padding:15px;" onclick="submitForm()">Join the Waitlist 🌱</button>
+      <p style="font-size:11px;color:var(--text-mid);text-align:center;margin-top:16px;">By joining, you agree to our Privacy Policy. No spam — ever.</p>
+    </div>
+    <div class="form-success" id="success-view">
+      <div class="form-success-icon">🌱</div>
+      <div class="form-success-title">You're on the list!</div>
+      <p class="form-success-desc">We'll be in touch as soon as we're ready to onboard your family. Your child's future is already beginning.</p>
+      <div style="margin-top:24px;padding:20px;background:var(--gold-pale);border-radius:12px;">
+        <div style="font-size:13px;color:var(--text-mid);">While you wait, explore our</div>
+        <div style="font-weight:600;color:var(--navy);margin-top:4px;cursor:pointer;" onclick="closeModal();showPage('parent-dashboard')">→ Parent Dashboard Demo</div>
+        <div style="font-weight:600;color:var(--navy);margin-top:4px;cursor:pointer;" onclick="closeModal();showPage('child-dashboard')">→ Child Portal Demo</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== PAGE NAVIGATION =====
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function scrollToSection(id) {
+  showPage('home');
+  setTimeout(() => {
+    const el = document.getElementById('section-' + id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
+
+// ===== DASHBOARD TABS =====
+function showDashTab(tab) {
+  document.querySelectorAll('.dash-tab-content').forEach(t => t.style.display = 'none');
+  document.querySelectorAll('.sidebar-nav-item').forEach(i => i.classList.remove('active'));
+  const el = document.getElementById('dash-' + tab);
+  if (el) el.style.display = 'block';
+  event.currentTarget.classList.add('active');
+}
+
+function setChartTab(el) {
+  document.querySelectorAll('.chart-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+// ===== CHILD TABS =====
+function showChildTab(tab, el) {
+  document.querySelectorAll('.child-tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.child-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('child-' + tab).classList.add('active');
+  el.classList.add('active');
+}
+
+// ===== COURSE TOGGLE =====
+function toggleCourse(header) {
+  const modules = header.nextElementSibling;
+  const isHidden = modules.style.display === 'none' || !modules.style.display;
+  modules.style.display = isHidden ? 'block' : 'none';
+}
+// Show first course by default
+document.addEventListener('DOMContentLoaded', () => {
+  const firstCourse = document.querySelector('.course-year-card.current .course-modules');
+  if (firstCourse) firstCourse.style.display = 'block';
+});
+
+// ===== FAQ =====
+function toggleFaq(el) {
+  el.classList.toggle('open');
+}
+
+// ===== CALCULATOR =====
+function formatCrore(val) {
+  if (val >= 10000000) return '₹' + (val/10000000).toFixed(1) + 'Cr';
+  if (val >= 100000) return '₹' + (val/100000).toFixed(1) + 'L';
+  return '₹' + Math.round(val/1000) + 'K';
+}
+
+function updateCalc() {
+  const sip = parseInt(document.getElementById('sip-slider').value);
+  const yrs = parseInt(document.getElementById('yr-slider').value);
+  const ret = parseFloat(document.getElementById('ret-slider').value) / 100;
+  const months = yrs * 12;
+  const r = ret / 12;
+  const corpus = sip * ((Math.pow(1 + r, months) - 1) / r) * (1 + r);
+  const invested = sip * months;
+  const returns = corpus - invested;
+  const ppfCorpus = sip * ((Math.pow(1 + 0.071/12, months) - 1) / (0.071/12)) * (1 + 0.071/12);
+
+  document.getElementById('sip-display').textContent = '₹' + sip.toLocaleString('en-IN');
+  document.getElementById('yr-display').textContent = yrs + ' years';
+  document.getElementById('ret-display').textContent = (ret*100).toFixed(1) + '%';
+  document.getElementById('result-main').textContent = formatCrore(corpus);
+  document.getElementById('result-sub').textContent = `Based on ₹${sip.toLocaleString('en-IN')}/month for ${yrs} years at ${(ret*100).toFixed(1)}% p.a.`;
+  document.getElementById('invested-val').textContent = formatCrore(invested);
+  document.getElementById('returns-val').textContent = formatCrore(returns);
+  document.getElementById('multiple-val').textContent = (corpus/invested).toFixed(1) + '×';
+  document.getElementById('daily-val').textContent = '₹' + Math.round(sip/30) + '/day';
+  document.getElementById('ppf-val').textContent = formatCrore(ppfCorpus);
+  document.getElementById('extra-val').textContent = '+' + formatCrore(corpus - ppfCorpus);
+
+  // Update slider gradient
+  ['sip-slider', 'yr-slider', 'ret-slider'].forEach(id => {
+    const s = document.getElementById(id);
+    const pct = ((s.value - s.min) / (s.max - s.min)) * 100;
+    s.style.setProperty('--pct', pct + '%');
+    s.style.background = `linear-gradient(to right, #C9A84C ${pct}%, rgba(255,255,255,0.15) ${pct}%)`;
+  });
+}
+updateCalc();
+
+// ===== MODAL =====
+function openModal() {
+  document.getElementById('waitlist-modal').classList.add('open');
+  document.getElementById('form-view').style.display = 'block';
+  document.getElementById('success-view').style.display = 'none';
+}
+function closeModal() {
+  document.getElementById('waitlist-modal').classList.remove('open');
+}
+function closeModalOutside(e) {
+  if (e.target.id === 'waitlist-modal') closeModal();
+}
+function submitForm() {
+  document.getElementById('form-view').style.display = 'none';
+  document.getElementById('success-view').style.display = 'block';
+}
+
+// ===== COPY LINK =====
+function copyLink() {
+  const input = document.getElementById('share-url');
+  input.select();
+  document.execCommand('copy');
+  const btn = event.currentTarget;
+  btn.textContent = 'Copied! ✓';
+  setTimeout(() => btn.textContent = 'Copy Link', 2000);
+}
+
+// ===== SCROLL REVEAL =====
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>
