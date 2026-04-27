@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, Phone } from "lucide-react";
-
+{/* Brand */}
 export default function Footer() {
   return (
     <footer className="bg-navy-mid text-white">
