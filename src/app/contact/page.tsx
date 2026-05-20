@@ -4,10 +4,45 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle, Loader2 } from "lucide-react";
+
+const WEBHOOK_URL = process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBHOOK;
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    childName: "",
+    childDob: "",
+    message: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setError(false);
+    try {
+      await fetch(WEBHOOK_URL!, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -49,13 +84,7 @@ export default function ContactPage() {
                     <h2 className="font-serif text-2xl text-ink mb-6">
                       Let&apos;s get started
                     </h2>
-                    <form
-                      onSubmit={(e) => {
-                        e.preventDefault();
-                        setSubmitted(true);
-                      }}
-                      className="space-y-5"
-                    >
+                    <form onSubmit={handleSubmit} className="space-y-5">
                       <div className="grid sm:grid-cols-2 gap-5">
                         <div>
                           <label className="block text-sm font-medium text-ink mb-2">
@@ -63,8 +92,11 @@ export default function ContactPage() {
                           </label>
                           <input
                             type="text"
+                            name="name"
                             required
                             placeholder="Your name"
+                            value={formData.name}
+                            onChange={handleChange}
                             className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-green focus:ring-2 focus:ring-green/20 outline-none transition-all text-sm"
                           />
                         </div>
@@ -74,8 +106,11 @@ export default function ContactPage() {
                           </label>
                           <input
                             type="tel"
+                            name="phone"
                             required
                             placeholder="+91 98765 43210"
+                            value={formData.phone}
+                            onChange={handleChange}
                             className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-green focus:ring-2 focus:ring-green/20 outline-none transition-all text-sm"
                           />
                         </div>
@@ -86,8 +121,11 @@ export default function ContactPage() {
                         </label>
                         <input
                           type="email"
+                          name="email"
                           required
                           placeholder="you@example.com"
+                          value={formData.email}
+                          onChange={handleChange}
                           className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-green focus:ring-2 focus:ring-green/20 outline-none transition-all text-sm"
                         />
                       </div>
@@ -97,7 +135,10 @@ export default function ContactPage() {
                         </label>
                         <input
                           type="text"
+                          name="childName"
                           placeholder="Your child's name"
+                          value={formData.childName}
+                          onChange={handleChange}
                           className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-green focus:ring-2 focus:ring-green/20 outline-none transition-all text-sm"
                         />
                       </div>
@@ -107,6 +148,9 @@ export default function ContactPage() {
                         </label>
                         <input
                           type="date"
+                          name="childDob"
+                          value={formData.childDob}
+                          onChange={handleChange}
                           className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-green focus:ring-2 focus:ring-green/20 outline-none transition-all text-sm"
                         />
                       </div>
@@ -115,18 +159,36 @@ export default function ContactPage() {
                           Message (optional)
                         </label>
                         <textarea
+                          name="message"
                           rows={3}
                           placeholder="Any questions or specific requirements?"
+                          value={formData.message}
+                          onChange={handleChange}
                           className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-green focus:ring-2 focus:ring-green/20 outline-none transition-all text-sm resize-none"
                         />
                       </div>
                       <button
                         type="submit"
-                        className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-green text-white font-semibold rounded-lg hover:bg-green-light transition-all shadow-md"
+                        disabled={submitting}
+                        className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-green text-white font-semibold rounded-lg hover:bg-green-light transition-all shadow-md disabled:opacity-70 disabled:cursor-not-allowed"
                       >
-                        <Send size={16} />
-                        Start Their Trust Fund
+                        {submitting ? (
+                          <>
+                            <Loader2 size={16} className="animate-spin" />
+                            Sending...
+                          </>
+                        ) : (
+                          <>
+                            <Send size={16} />
+                            Start Their Trust Fund
+                          </>
+                        )}
                       </button>
+                      {error && (
+                        <p className="text-red-500 text-sm text-center">
+                          Something went wrong. Please try again or email us at hello@trustfundbaby.in
+                        </p>
+                      )}
                       <p className="text-xs text-stone text-center">
                         By submitting, you agree to our Terms of Service and Privacy Policy.
                       </p>
