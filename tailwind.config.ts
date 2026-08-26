@@ -21,6 +21,22 @@ const config: Config = {
         paper: "#FBFAF6",
         growth: "#BFE0C4",
         sage: "#DDE3DA",
+        // Legacy colors used by education module pages
+        navy: {
+          DEFAULT: "#1B3A63",
+          mid: "#1E3F6B",
+          light: "#2D5A8A",
+        },
+        gold: {
+          DEFAULT: "#EC9A1E",
+          light: "#F0B04A",
+        },
+        cloud: "#F5F4F0",
+        stone: "#6B6B65",
+        green: {
+          DEFAULT: "#4A8B5C",
+          light: "#5FA872",
+        },
         ink: "#1B1B1B",
         muted: "#7A7A75",
         line: {
