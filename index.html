@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trust Fund Baby — Start small. Set them up for life.</title>
+<meta name="description" content="Irrevocable trusts and tagged investments for Indian parents and their children. TFB EduVest LLP, AMFI-registered mutual fund distributor, ARN-368678.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tfb.css">
+</head>
+<body>
+
+<!-- ══════════════ NAV ══════════════ -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#" data-go="home">
+      <img src="assets/logo.png" alt="">
+      <b>Trust Fund Baby</b>
+    </a>
+    <div class="nav-links">
+      <a href="#products" data-go="home">Products</a>
+      <a href="#how" data-go="home">How it works</a>
+      <a href="#" data-go="education">Education</a>
+      <a href="#" data-go="dashboard">Dashboard</a>
+      <a href="#faq" data-go="home">Questions</a>
+    </div>
+    <a class="btn btn-primary nav-cta" href="#" data-go="home">Start at ₹1,000</a>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: HOME
+     ══════════════════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+<!-- ── hero ── -->
+<header class="hero">
+  <img class="canopy" src="assets/canopy.png" alt="">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="deedrule" data-rv><span>TFB EduVest LLP · ARN-368678</span></div>
+      <h1 data-rv>Start small.<span class="soft">Set them up for life.</span></h1>
+      <p class="lede" data-rv>A legally irrevocable trust for your child, or a flexible monthly
+        investment tagged to their name. The whole family can contribute — and their names stay
+        on it until the day the corpus is theirs.</p>
+      <div class="hero-cta" data-rv>
+        <a class="btn btn-primary" href="#products">Explore the three products <span class="arw">→</span></a>
+        <a class="btn btn-ghost" href="#" data-go="education">See the Academy</a>
+      </div>
+      <div class="hero-proof" data-rv>
+        <div><b>₹1,000</b>a month to begin</div>
+        <div><b>18 / 21 / 25</b>you choose the age, once</div>
+        <div><b>108</b>free lessons from age 13</div>
+      </div>
+    </div>
+
+    <!-- ★ SIGNATURE ELEMENT: the year ledger ★ -->
+    <div data-rv>
+      <div class="ledger-card">
+        <div class="ledger-head">
+          <div>
+            <div class="mono" style="margin-bottom:5px">THE YEAR LEDGER</div>
+            <div class="ledger-name" id="lg-name">Aarav</div>
+          </div>
+          <div class="mono" id="lg-vest">VESTS 2047</div>
+        </div>
+
+        <div class="ledger-ticks" id="lg-ticks"></div>
+        <div class="ledger-axis">
+          <span id="lg-born">BORN 2022</span>
+          <span id="lg-today">TODAY</span>
+          <span id="lg-end">AGE 25</span>
+        </div>
+
+        <div class="ledger-read">
+          <div><span>Years behind</span><b id="lg-done">4</b></div>
+          <div><span>Years ahead</span><b id="lg-left">21</b></div>
+        </div>
+
+        <div class="ledger-ctrl">
+          <label class="field">
+            <span>Child's birth year</span>
+            <input type="number" id="in-year" value="2022" min="2008" max="2026" step="1">
+          </label>
+          <div class="field">
+            <span>Vesting age</span>
+            <div class="seg" id="seg-age">
+              <button type="button" data-age="18">18</button>
+              <button type="button" data-age="21">21</button>
+              <button type="button" data-age="25" aria-pressed="true">25</button>
+            </div>
+          </div>
+        </div>
+
+        <p class="ledger-note">This ledger counts years, never rupees. We do not project returns,
+          and you should be wary of anyone who does.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ── products ── -->
+<section id="products">
+  <div class="wrap">
+    <div class="sec-head" data-rv>
+      <div class="deedrule"><span>Three products</span></div>
+      <h2>One of these fits where you are right now.</h2>
+      <p class="lede">Two are fully reversible. One is not, on purpose. The difference is the
+        whole decision, so we lead with it rather than burying it.</p>
+    </div>
+
+    <div class="prod-grid">
+      <article class="prod prod-seed" data-rv>
+        <svg class="glyph" viewBox="0 0 60 52" fill="none" aria-hidden="true">
+          <line x1="4" y1="46" x2="56" y2="46" stroke="#D8D4C8" stroke-width="1.4"/>
+          <path d="M30 46V34" stroke="#1B3A63" stroke-width="2.4"/>
+          <ellipse cx="30" cy="26" rx="9" ry="12" fill="#BFE0C4" stroke="#1B3A63" stroke-width="2.4"/>
+        </svg>
+        <h3>TFB Seed</h3>
+        <span class="price">FROM ₹1,000 / MONTH · FREE TO OPEN</span>
+        <p>Small monthly contributions into your child's future, on your PAN or theirs.
+          Stop, pause or withdraw whenever you like.</p>
+        <ul>
+          <li><span>Whose PAN</span><span>YOURS OR THEIRS</span></li>
+          <li><span>Reversible</span><span>YES, FULLY</span></li>
+          <li><span>Family can contribute</span><span>YES</span></li>
+        </ul>
+        <a class="go" href="#">Read about Seed <span class="arw">→</span></a>
+      </article>
+
+      <article class="prod prod-harvest" data-rv>
+        <svg class="glyph" viewBox="0 0 60 52" fill="none" aria-hidden="true">
+          <line x1="4" y1="46" x2="56" y2="46" stroke="#D8D4C8" stroke-width="1.4"/>
+          <path d="M30 46V22" stroke="#1B3A63" stroke-width="2.4"/>
+          <circle cx="30" cy="16" r="12" fill="#BFE0C4" stroke="#1B3A63" stroke-width="2.4"/>
+          <circle cx="22" cy="30" r="3.2" fill="#EC9A1E"/>
+          <circle cx="38" cy="33" r="3.2" fill="#EC9A1E"/>
+          <circle cx="30" cy="27" r="3.2" fill="#EC9A1E"/>
+        </svg>
+        <h3>TFB Harvest</h3>
+        <span class="price">FROM ₹5,00,000 ONCE · FREE TO OPEN</span>
+        <p>Put a lump sum to work once, then draw a monthly income from it for as long as
+          it lasts. No cap, no tenure, change it whenever.</p>
+        <ul>
+          <li><span>Whose PAN</span><span>YOURS</span></li>
+          <li><span>Withdrawal</span><span>YOU SET IT</span></li>
+          <li><span>Can become a Deed</span><span>YES, LATER</span></li>
+        </ul>
+        <a class="go" href="#">Read about Harvest <span class="arw">→</span></a>
+      </article>
+
+      <article class="prod prod-deed" data-rv>
+        <svg class="glyph" viewBox="0 0 60 52" fill="none" aria-hidden="true">
+          <rect x="14" y="6" width="32" height="40" rx="1.5" fill="#DDE3DA" stroke="#1B3A63" stroke-width="2.2"/>
+          <path d="M22 20h16M22 27h16M22 34h9" stroke="#1B3A63" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="41" cy="39" r="6" fill="#EC9A1E"/>
+        </svg>
+        <h3>TFB Deed</h3>
+        <span class="price">₹20,000 ONCE · IRREVOCABLE</span>
+        <p>A real trust with its own PAN. You design how your child receives the money —
+          then nobody can change it. Not you. Not us.</p>
+        <ul>
+          <li><span>Whose PAN</span><span>THE TRUST'S OWN</span></li>
+          <li><span>Reversible</span><span>NO. THAT'S THE POINT</span></li>
+          <li><span>Payout plans</span><span>FIVE TO CHOOSE FROM</span></li>
+        </ul>
+        <a class="go" href="#">Read about Deed <span class="arw">→</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── the irrevocability truth panel ── -->
+<section class="truth">
+  <div class="wrap truth-grid">
+    <div>
+      <div class="deedrule" style="border-color:rgba(251,250,246,.4)" data-rv>
+        <span>Clause 4 · Irrevocability</span></div>
+      <h2 data-rv>The hard part, before the good part.</h2>
+      <p class="lede" data-rv>Most products in this category tell you what you gain. An
+        irrevocable trust is defined by what you give up, so that is what we put first.</p>
+      <ul class="truth-list">
+        <li data-rv><span class="n">01</span><div>
+          <b>The money stops being yours</b>
+          <p>The day the deed is signed, the corpus belongs to a separate legal entity.
+            Not to you, and not to us.</p></div></li>
+        <li data-rv><span class="n">02</span><div>
+          <b>You cannot undo it</b>
+          <p>No cooling-off, no emergency clause, no exception for a change of heart.
+            If you might need the money, choose Seed instead — that is a real answer.</p></div></li>
+        <li data-rv><span class="n">03</span><div>
+          <b>The payout plan is frozen at signing</b>
+          <p>You choose how your child receives it once, in advance. That choice
+            outlives your opinion of it.</p></div></li>
+      </ul>
+    </div>
+    <div data-rv>
+      <div class="irrev">
+        <div class="lbl">Step 7 of 10 · confirmation</div>
+        <p>You are about to create an irrevocable trust for <b>Aarav</b>. This cannot be
+          reversed by you, by the trustee, or by Trust Fund Baby. To continue, type the
+          word below.</p>
+        <div class="typed"><span id="typed-out"></span><i class="caret"></i></div>
+        <p class="hint">This screen has no colour, no logo and no reassurance on purpose.</p>
+      </div>
+      <div class="offramp">
+        <div>
+          <span class="mono">NOT READY FOR THAT?</span>
+          <p>Then don't sign it. TFB Seed keeps every rupee reversible, and you can convert
+             to a Deed years later when you're certain.</p>
+        </div>
+        <a class="btn btn-onblue" href="#products">Look at Seed <span class="arw">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── contributor wall ── -->
+<section class="wall">
+  <div class="wrap wall-grid">
+    <div data-rv>
+      <div class="cert">
+        <div class="cert-head">
+          <img src="assets/logo-rev.png" alt="">
+          <div class="k">A contribution has been made for</div>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">Aarav</div>
+          <div class="cert-fields">
+            <div><div class="v">Nana &amp; Nani</div><div class="k">Contributed by</div></div>
+            <div><div class="v">13 March 2026</div><div class="k">Planted on</div></div>
+          </div>
+          <div class="cert-line">Because love also looks like long-term thinking.</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="deedrule" data-rv><span>The well-wisher rail</span></div>
+      <h2 data-rv>Stop gifting toys.<br>Gift a future.</h2>
+      <p class="lede" data-rv>Anyone can contribute through a link — no account, no app, no login.
+        Grandparents, an aunt, a family friend. They get a certificate. The child gets a
+        contributor wall with their name on it, and it stays there for twenty years.</p>
+      <div class="hero-proof" data-rv style="border-color:rgba(27,58,99,.2)">
+        <div><b>No account</b>needed to contribute</div>
+        <div><b>Permanent</b>name on the wall</div>
+        <div><b>Every occasion</b>shagun, Diwali, birthdays</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── education preview ── -->
+<section class="edu">
+  <div class="wrap">
+    <div class="sec-head" data-rv>
+      <div class="deedrule"><span>TFB Academy · included, always free</span></div>
+      <h2>They don't just get money. They get the wisdom to keep it.</h2>
+      <p class="lede">108 modules across nine years. Watch, learn, do the lab, pass the quiz.
+        From "what is money" at 13 to managing the corpus they're about to receive at 21.</p>
+    </div>
+    <div class="steps-grid" data-rv style="border-top:1px solid rgba(27,58,99,.18)">
+      <div class="step" style="border-color:rgba(27,58,99,.18)">
+        <span class="n">STEP 1 · WATCH</span><h3>A short film</h3>
+        <p>One idea, explained plainly, in under six minutes.</p></div>
+      <div class="step" style="border-color:rgba(27,58,99,.18)">
+        <span class="n">STEP 2 · LEARN &amp; LAB</span><h3>Read, then do</h3>
+        <p>The written module, followed by an interactive lab that makes the idea concrete.</p></div>
+      <div class="step" style="border-color:rgba(27,58,99,.18)">
+        <span class="n">STEP 3 · QUIZ</span><h3>Prove it</h3>
+        <p>Five questions. Pass, and the next module opens.</p></div>
+    </div>
+    <div style="margin-top:34px" data-rv>
+      <a class="btn btn-ghost" href="#" data-go="education">Open the Academy <span class="arw">→</span></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── how it works ── -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head" data-rv>
+      <div class="deedrule"><span>Creating a Deed</span></div>
+      <h2>Ten steps, on the website, without a single phone call.</h2>
+    </div>
+    <div class="steps-grid" data-rv>
+      <div class="step"><span class="n">STEPS 1–3</span><h3>Name and fund it</h3>
+        <p>Your child's name and date of birth, the vesting age, and where the money comes
+          from — a new SIP, a lump sum, or an existing Seed or Harvest.</p></div>
+      <div class="step"><span class="n">STEPS 4–7</span><h3>Design the payout, then confirm</h3>
+        <p>Pick one of five payout plans and set the numbers. Read it back in plain English.
+          Name your trustee. Then type IRREVOCABLE.</p></div>
+      <div class="step"><span class="n">STEPS 8–10</span><h3>Signed and stamped</h3>
+        <p>The deed is generated from your choices, e-stamped and e-signed. The trust PAN
+          application goes out in parallel. Funding begins.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── faq ── -->
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head" data-rv>
+      <div class="deedrule"><span>The plain answers</span></div>
+      <h2>The questions parents actually ask.</h2>
+    </div>
+    <div class="faq" data-rv>
+      <details open><summary>What if I need the money?<i class="pm"></i></summary>
+        <div class="ans">Then a trust is not for you yet, and that is a real answer rather than a
+          deflection. TFB Seed keeps everything flexible — stop it, pause it or withdraw whenever
+          you want. Come back to the Deed when you are certain.</div></details>
+      <details><summary>Why not just PPF or Sukanya?<i class="pm"></i></summary>
+        <div class="ans">Both are good, and you should probably have them. They are also still yours —
+          you can close a PPF. A trust is a separate legal entity: the money stops being yours the
+          day the deed is signed. That is the only meaningful difference, and it is the whole point.</div></details>
+      <details><summary>If it's free to start, how do you make money?<i class="pm"></i></summary>
+        <div class="ans">Trail commission from the fund houses on Seed and Harvest, the one-time
+          ₹20,000 fee on a Deed, and an ITR filing fee where a trust or an SWP makes annual filing
+          necessary. We do not charge a management or advisory fee.</div></details>
+      <details><summary>How much will it grow to?<i class="pm"></i></summary>
+        <div class="ans">We don't project returns, and we'd gently suggest being wary of anyone who
+          does. What we can tell you exactly is what you have contributed, who contributed it, and
+          how many years remain. That is what the year ledger shows.</div></details>
+      <details><summary>What happens if Trust Fund Baby shuts down?<i class="pm"></i></summary>
+        <div class="ans">The trust is a legal entity independent of us, and the investments sit with
+          the asset management companies and their registrars — not with us. If we disappeared
+          tomorrow, the trust would still exist.</div></details>
+    </div>
+  </div>
+</section>
+
+</div><!-- /page-home -->
+
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: EDUCATION
+     ══════════════════════════════════════════════════════ -->
+<div class="page" id="page-education">
+  <section style="padding-bottom:36px">
+    <div class="wrap">
+      <div class="deedrule" data-rv><span>TFB Academy · 108 modules · free forever</span></div>
+      <h1 data-rv style="max-width:16ch;margin-bottom:20px">Money, the way school should have taught it.</h1>
+      <p class="lede" data-rv>Nine years, twelve modules a year, starting the birthday they turn 13.
+        Every module is watch, learn, lab, quiz. Nothing is locked behind a payment, and there is
+        no advertising anywhere inside it.</p>
+    </div>
+  </section>
+
+  <section class="edu" style="padding-top:48px">
+    <div class="wrap">
+      <div class="year-rail" id="year-rail" data-rv></div>
+      <div class="mod-grid" id="mod-grid"></div>
+      <p class="ledger-note" style="margin-top:24px" id="edu-note"></p>
+    </div>
+  </section>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: DASHBOARD
+     ══════════════════════════════════════════════════════ -->
+<div class="page" id="page-dashboard">
+  <section class="dash">
+    <div class="wrap">
+      <div class="deedrule" data-rv><span>Parent dashboard · preview</span></div>
+      <h1 data-rv style="max-width:18ch;margin-bottom:20px">Everything you can actually know.</h1>
+      <p class="lede" data-rv style="margin-bottom:44px">Contributed, who contributed it, which
+        scheme it went into, and how many years are left. No projection, no growth multiple,
+        no comparison against something else.</p>
+
+      <div class="dash-shell" data-rv>
+        <div class="dash-bar">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div class="u">SANCHIT KEDIA · AARAV'S TRUST · TFB-2026-0114</div>
+          <div class="u">ARN-368678</div>
+        </div>
+        <div class="dash-body">
+          <div class="dash-l">
+            <div class="dash-kpi">
+              <div><span>Total contributed</span><b>₹1,09,200</b><em>ACROSS 14 PAYMENTS</em></div>
+              <div><span>Contributors</span><b>4</b><em>FAMILY MEMBERS</em></div>
+              <div><span>Years remaining</span><b>21</b><em>VESTS 15 MAR 2047</em></div>
+            </div>
+
+            <div class="mono" style="color:var(--muted);margin-bottom:14px">THE YEAR LEDGER</div>
+            <div class="ledger-ticks" id="dash-ticks" style="height:64px"></div>
+            <div class="ledger-axis"><span>BORN 2022</span><span>TODAY</span><span>AGE 25</span></div>
+
+            <div class="mono" style="color:var(--muted);margin:26px 0 6px">RECENT CONTRIBUTIONS</div>
+            <div class="fundrow" style="cursor:default">
+              <div class="fn"><b>Nana &amp; Nani</b><span>13 MAR 2026 · WELL-WISHER</span></div>
+              <div class="tag">₹5,100</div></div>
+            <div class="fundrow" style="cursor:default">
+              <div class="fn"><b>Monthly SIP</b><span>05 MAR 2026 · AUTO-DEBIT</span></div>
+              <div class="tag">₹1,000</div></div>
+            <div class="fundrow" style="cursor:default">
+              <div class="fn"><b>Kaka &amp; Kaki</b><span>02 FEB 2026 · WELL-WISHER</span></div>
+              <div class="tag">₹2,100</div></div>
+          </div>
+
+          <div class="dash-r">
+            <div class="mono" style="color:var(--muted);margin-bottom:6px">CHOOSE A SCHEME</div>
+            <p class="small" style="margin-bottom:6px">Orders are placed through BSE StAR MF.
+              We list schemes and execute your instruction — we do not recommend one.</p>
+
+            <div id="funds">
+              <div class="fundrow" aria-selected="true" tabindex="0">
+                <div class="rad"></div>
+                <div class="fn"><b>Balanced Advantage Fund</b><span>DIRECT · GROWTH · MODERATE</span></div>
+                <div class="tag">Balanced</div></div>
+              <div class="fundrow" tabindex="0">
+                <div class="rad"></div>
+                <div class="fn"><b>Large Cap Index Fund</b><span>DIRECT · GROWTH · MODERATE</span></div>
+                <div class="tag">Growth</div></div>
+              <div class="fundrow" tabindex="0">
+                <div class="rad"></div>
+                <div class="fn"><b>Short Duration Debt Fund</b><span>DIRECT · GROWTH · LOW</span></div>
+                <div class="tag">Conservative</div></div>
+            </div>
+
+            <div style="border-top:1px solid var(--line);margin-top:18px;padding-top:18px">
+              <div class="ledger-read" style="border:0;padding:0">
+                <div><span>Monthly SIP</span><b>₹1,000</b></div>
+                <div><span>Next debit</span><b style="font-size:19px">05 Sep</b></div>
+              </div>
+            </div>
+
+            <a class="btn btn-primary" style="width:100%;justify-content:center;margin-top:20px"
+               href="#">Confirm and place order <span class="arw">→</span></a>
+
+            <div class="wire"><i></i>BSE StAR MF · order rail connected</div>
+            <p class="ledger-note">Mutual fund investments are subject to market risks. Read all
+              scheme related documents carefully.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="ledger-note" style="margin-top:22px">Interface preview. Scheme names shown are
+        generic placeholders — real scheme lists come from the BSE StAR MF master file at build time.</p>
+    </div>
+  </section>
+</div>
+
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-brand">
+        <img src="assets/logo-rev.png" alt="">
+        <div class="arnbadge"><i></i>AMFI REGISTERED · ARN-368678</div>
+        <p>Irrevocable trusts and tagged investments for Indian parents and their children.
+          Start small. Set them up for life.</p>
+      </div>
+      <div><h4>Products</h4><ul>
+        <li><a href="#">TFB Seed</a></li><li><a href="#">TFB Harvest</a></li>
+        <li><a href="#">TFB Deed</a></li><li><a href="#" data-go="education">Academy</a></li></ul></div>
+      <div><h4>Company</h4><ul>
+        <li><a href="#">About</a></li><li><a href="#">Blog</a></li>
+        <li><a href="#faq" data-go="home">Questions</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><h4>Legal</h4><ul>
+        <li><a href="#">Privacy policy</a></li><li><a href="#">Terms of service</a></li>
+        <li><a href="#">Disclaimer</a></li><li><a href="#">Grievance redressal</a></li></ul></div>
+    </div>
+    <div class="f-legal">
+      <strong>TFB EduVest LLP</strong> · 1901, Sahyadri Tower CHSL, Upper Govind Nagar,
+      Opp. Poddar School, Malad (East), Mumbai 400097 · +91 98190 10129<br>
+      AMFI-registered mutual fund distributor · <strong>ARN-368678</strong> ·
+      valid 25 Aug 2026 to 24 Aug 2029 · LLPIN [LLPIN]<br>
+      Mutual fund investments are subject to market risks. Read all scheme related documents
+      carefully. We do not provide investment advice. Past performance is not indicative of future
+      results. Trust structures created through this platform are irrevocable and cannot be reversed.
+    </div>
+  </div>
+</footer>
+
+<script src="tfb.js"></script>
+</body>
+</html>
