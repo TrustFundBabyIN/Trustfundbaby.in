@@ -3,8 +3,12 @@
 # dependencies
 /node_modules
 /.pnp
-.pnp.js
-.yarn/install-state.gz
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
 # testing
 /coverage
@@ -24,9 +28,16 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
 
-# local env files
-.env*.local
+# env files (can opt-in for committing if needed)
+.env*
+
+# local sqlite database
+*.db
+
+# local document storage — swap for object storage before deploying
+/.uploads/
 
 # vercel
 .vercel
@@ -35,5 +46,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.env
-CLAUDE.md
+.mcp.json
+.claude
+.agents
+TFB-TECH-SPEC.md
+client_secret_858130376189-2k0jutbor9ldir0pkgblinfgn5bquo4q.apps.googleusercontent.com.json
+context/

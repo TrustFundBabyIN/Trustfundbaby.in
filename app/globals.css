@@ -1,0 +1,196 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Closed brand palette — TFB-03 Visual Identity. Nothing added outside these five. */
+@theme {
+  --color-trust-blue: #1b3a63;
+  --color-marigold: #ec9a1e;
+  --color-paper: #fbfaf6;
+  --color-growth-green: #bfe0c4;
+  --color-stamp-sage: #dde3da;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-display);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --card: var(--color-paper);
+  --card-foreground: var(--color-trust-blue);
+  --popover: var(--color-paper);
+  --popover-foreground: var(--color-trust-blue);
+  --primary: var(--color-marigold);
+  --primary-foreground: var(--color-trust-blue);
+  --secondary: var(--color-stamp-sage);
+  --secondary-foreground: var(--color-trust-blue);
+  --muted: color-mix(in oklch, var(--color-paper), var(--color-trust-blue) 6%);
+  --muted-foreground: color-mix(in oklch, var(--color-trust-blue), var(--color-paper) 35%);
+  --accent: color-mix(in oklch, var(--color-paper), var(--color-trust-blue) 10%);
+  --accent-foreground: var(--color-trust-blue);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: color-mix(in oklch, var(--color-stamp-sage), var(--color-paper) 40%);
+  --input: color-mix(in oklch, var(--color-stamp-sage), var(--color-paper) 25%);
+  --ring: color-mix(in oklch, var(--color-trust-blue), transparent 50%);
+  --chart-1: var(--color-trust-blue);
+  --chart-2: var(--color-marigold);
+  --chart-3: var(--color-growth-green);
+  --chart-4: var(--color-stamp-sage);
+  --chart-5: color-mix(in oklch, var(--color-trust-blue), white 45%);
+  --radius: 0.875rem;
+  --sidebar: var(--color-paper);
+  --sidebar-foreground: var(--color-trust-blue);
+  --sidebar-primary: var(--color-trust-blue);
+  --sidebar-primary-foreground: var(--color-paper);
+  --sidebar-accent: color-mix(in oklch, var(--color-paper), var(--color-trust-blue) 8%);
+  --sidebar-accent-foreground: var(--color-trust-blue);
+  --sidebar-border: color-mix(in oklch, var(--color-stamp-sage), var(--color-paper) 40%);
+  --sidebar-ring: color-mix(in oklch, var(--color-trust-blue), transparent 50%);
+
+  /* Decorative layer: ink on a light ground. */
+  --grid-line: color-mix(in oklch, var(--color-trust-blue), transparent 95%);
+  --ambient: color-mix(in oklch, var(--color-trust-blue), transparent 93%);
+  --background: var(--color-paper);
+  --foreground: var(--color-trust-blue);
+}
+
+.dark {
+  /* Trust Blue as a dark ground is an approved treatment (VIS.MARK §1.2). */
+  --background: var(--color-trust-blue);
+  --foreground: var(--color-paper);
+  --card: color-mix(in oklch, var(--color-trust-blue), white 8%);
+  --card-foreground: var(--color-paper);
+  --popover: color-mix(in oklch, var(--color-trust-blue), white 8%);
+  --popover-foreground: var(--color-paper);
+  --primary: var(--color-marigold);
+  --primary-foreground: var(--color-trust-blue);
+  --secondary: color-mix(in oklch, var(--color-trust-blue), white 16%);
+  --secondary-foreground: var(--color-paper);
+  --muted: color-mix(in oklch, var(--color-trust-blue), white 12%);
+  --muted-foreground: color-mix(in oklch, var(--color-paper), var(--color-trust-blue) 35%);
+  --accent: color-mix(in oklch, var(--color-trust-blue), var(--color-growth-green) 18%);
+  --accent-foreground: var(--color-paper);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: color-mix(in oklch, var(--color-paper), transparent 90%);
+  --input: color-mix(in oklch, var(--color-paper), transparent 85%);
+  --ring: color-mix(in oklch, var(--color-marigold), transparent 40%);
+  --chart-1: var(--color-marigold);
+  --chart-2: var(--color-growth-green);
+  --chart-3: var(--color-stamp-sage);
+  --chart-4: color-mix(in oklch, var(--color-paper), var(--color-trust-blue) 30%);
+  --chart-5: var(--color-paper);
+  --sidebar: color-mix(in oklch, var(--color-trust-blue), black 10%);
+  --sidebar-foreground: var(--color-paper);
+  --sidebar-primary: var(--color-marigold);
+  --sidebar-primary-foreground: var(--color-trust-blue);
+  --sidebar-accent: color-mix(in oklch, var(--color-trust-blue), white 14%);
+  --sidebar-accent-foreground: var(--color-paper);
+  --sidebar-border: color-mix(in oklch, var(--color-paper), transparent 90%);
+  --sidebar-ring: color-mix(in oklch, var(--color-marigold), transparent 40%);
+
+  --grid-line: color-mix(in oklch, var(--color-paper), transparent 94%);
+  --ambient: color-mix(in oklch, var(--color-paper), transparent 91%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  /* Fraunces SOFT axis: warmth lives here. Never set it cold (VIS.TYPE, §3). */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+    font-variation-settings: "SOFT" 92;
+  }
+}
+
+/* Gradients are token-derived so they invert with the theme instead of
+   needing `dark:` overrides. */
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Softens the flat page ground behind auth screens. */
+@utility bg-ambient {
+  background-image:
+    radial-gradient(60rem 32rem at 50% -12%, var(--ambient), transparent 70%),
+    radial-gradient(40rem 24rem at 50% 112%, var(--ambient), transparent 70%);
+}
+
+/* Keeps large headlines from reading as a flat block of ink. */
+@utility text-gradient {
+  background-image: linear-gradient(
+    to bottom,
+    var(--foreground),
+    color-mix(in oklch, var(--foreground), var(--background) 35%)
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+/* Keeps solid primary fills from reading as a flat black slab. */
+@utility bg-primary-gradient {
+  background-image: linear-gradient(
+    to bottom,
+    color-mix(in oklch, var(--primary), var(--primary-foreground) 14%),
+    var(--primary)
+  );
+}
