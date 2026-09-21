@@ -95,7 +95,13 @@ export function SiteFooter() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p>
               <span className="font-mono">ARN-368678</span> · Grievance
-              officer: [GRIEVANCE_OFFICER] · [EMAIL]
+              officer: TFB EduVest LLP ·{" "}
+              <a
+                href="mailto:hello@trustfundbaby.in"
+                className="underline underline-offset-4 hover:text-foreground"
+              >
+                hello@trustfundbaby.in
+              </a>
             </p>
             <p>© 2026 TFB EduVest LLP. All rights reserved.</p>
           </div>

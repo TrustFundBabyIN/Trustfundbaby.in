@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s · Trust Fund Baby",
   },
   description:
-    "Start a SIP or lump-sum account for your child from ₹1,000, invite family to contribute, and convert it into a legally irrevocable trust when you're ready — plus 108 free financial lessons.",
+    "Start a SIP or lump-sum account for your child from ₹100 a month, invite family to contribute, and convert it into a legally irrevocable trust when you're ready — plus 108 free financial lessons.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
