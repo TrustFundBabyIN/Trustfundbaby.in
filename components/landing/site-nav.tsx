@@ -30,6 +30,11 @@ const links = [
   { href: "#faq", label: "FAQ" },
 ];
 
+// Only same-page hash anchors are valid CSS selectors for the scroll-spy
+// below. Route links ("/blog") must never reach querySelector — passing one
+// throws a SyntaxError that kills hydration and blanks the whole site.
+const sectionLinks = links.filter((link) => link.href.startsWith("#"));
+
 export function SiteNav() {
   const pathname = usePathname();
   const [activeHref, setActiveHref] = useState<string | null>(null);
@@ -48,8 +53,14 @@ export function SiteNav() {
   // Highlights the nav link for whatever section is crossing the viewport's
   // vertical center — independent of ScrollSmoother's transform-based scroll.
   useEffect(() => {
-    const sections = links
-      .map((link) => document.querySelector<HTMLElement>(link.href))
+    const sections = sectionLinks
+      .map((link) => {
+        try {
+          return document.querySelector<HTMLElement>(link.href);
+        } catch {
+          return null;
+        }
+      })
       .filter((section): section is HTMLElement => section !== null);
 
     // IntersectionObserver only reports elements whose state just changed,
@@ -62,7 +73,7 @@ export function SiteNav() {
         for (const entry of entries) {
           visibility.set(`#${entry.target.id}`, entry.isIntersecting);
         }
-        const active = links.find((link) => visibility.get(link.href))?.href ?? null;
+        const active = sectionLinks.find((link) => visibility.get(link.href))?.href ?? null;
         setActiveHref(active);
       },
       { rootMargin: "-45% 0px -50% 0px" }
