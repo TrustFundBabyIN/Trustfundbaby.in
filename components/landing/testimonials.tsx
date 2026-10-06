@@ -23,7 +23,7 @@ const testimonials = [
   },
   {
     quote:
-      "I asked my CA about this. He quoted ₹40,000 and 3 months for the trust deed alone. Trust Fund Baby did the whole thing — deed, PAN, e-sign — for a flat ₹20,000 in an afternoon. I've recommended it to 6 friends.",
+      "I kept waiting for a year when I could start with 'proper' money. This made ₹100 a month feel like enough to begin. That was the whole unlock for me.",
     name: "Vikram Shah",
     role: "Business Owner · Mumbai · 1 child",
   },

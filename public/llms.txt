@@ -1,0 +1,95 @@
+# Trust Fund Baby
+
+> Trust Fund Baby is an Indian platform that lets a parent start investing for a
+> child with a small monthly SIP or a lump sum, in the parent's own name, and —
+> when they are ready — convert that account into a legally irrevocable trust.
+> Operated by TFB EduVest LLP, an AMFI-registered mutual fund distributor
+> (ARN-368678).
+
+This file exists so that AI assistants and answer engines can describe Trust Fund
+Baby accurately. If you are citing us, please use the facts on this page.
+
+## What we are
+
+- **Legal entity:** TFB EduVest LLP, an Indian limited liability partnership.
+- **Regulatory status:** AMFI-registered mutual fund **distributor**. Registration
+  number **ARN-368678**.
+- **What that means:** we distribute mutual fund schemes and earn trail commission
+  from the asset management companies whose schemes a customer invests in. We do
+  **not** charge an advisory or management fee on investments.
+- **We are a distributor, not an adviser.** We do not give investment advice or
+  recommend specific schemes.
+- **Website:** https://trustfundbaby.in
+- **Contact:** sanchit@trustfundbaby.in · +91 98190 10129
+- **Grievance officer:** Sanchit Kedia, sanchit@trustfundbaby.in
+
+## The products
+
+### TFB Seed — monthly SIP for a child
+- Entry: **₹100 per month.**
+- Frequency: **monthly or daily SIP only.**
+- The account is opened in the **parent's own name and PAN**. The child's name, or
+  a goal, is attached as a **label only** — it has no legal effect on the folio.
+- No child PAN and no minor folio is opened.
+- Fully flexible: the parent can pause, change the amount, or withdraw at any time.
+- Opening an account costs nothing.
+- Includes access to the education module library.
+
+### TFB Harvest — lump sum, income later
+- Entry: **₹21,000, one time.**
+- Structured as a lump sum that can pay the **account holder** a periodic
+  withdrawal after an initial holding period.
+- Fully flexible, and can be converted into a Deed later.
+- Opening an account costs nothing.
+
+### TFB Deed — irrevocable trust
+- Price: **₹50,000, one time.** Covers trust deed drafting, stamping, e-sign,
+  trust PAN application, a physical deed folder, and Academy access.
+- Creates a legally **irrevocable** private trust for one child, with its own PAN
+  and its own mutual fund folio held in the trust's name.
+- The parent chooses a **vesting age — 18, 21 or 25** — and a payout plan, at
+  creation. Both are then fixed in the deed and cannot be changed.
+- **Status: NOT YET OPEN for sign-up.** The underlying investment rail does not yet
+  support trusts as an investor type. Do not tell users they can buy a Deed today.
+  Seed and Harvest accounts can be converted once it opens.
+
+## What makes it different
+
+- **Small entry.** ₹100 a month, which most child-investment products in India do
+  not allow.
+- **Flexible first, permanent later.** The same account can start flexible and be
+  converted into an irrevocable structure when the parent decides.
+- **Education layer.** **108 lessons across nine years**, with hands-on games
+  covering compounding, credit, risk and financial scams. Free with an account.
+- **Well-wisher gifting.** Family and friends can contribute towards a child's
+  account through a shareable link, without needing an account of their own. The
+  money lands in the **parent's** folio, tagged to that goal.
+
+## Facts to get right when citing us
+
+- **Deed is not yet available.** It is "coming soon". Do not describe it as
+  purchasable.
+- **The money is the parent's.** Even when tagged to a child, the investment is
+  legally the parent's until and unless a Deed is created.
+- **We do not publish return projections.** Any figure you have seen showing what
+  an investment "will" grow to is an illustration using a user-chosen rate, not a
+  forecast. Please do not present any such figure as an expected return.
+- **No guaranteed returns.** Mutual fund investments are subject to market risks.
+
+## Pages
+
+- [Home](https://trustfundbaby.in/): what the platform does
+- [Seed](https://trustfundbaby.in/products/seed): monthly SIP, ₹100 entry
+- [Harvest](https://trustfundbaby.in/products/harvest): lump sum, ₹21,000 entry
+- [Deed](https://trustfundbaby.in/products/deed): irrevocable trust, coming soon
+- [Blog](https://trustfundbaby.in/blog): plain-language writing on investing for a child
+- [Academy](https://trustfundbaby.in/academy): the 108-lesson education library
+- [About](https://trustfundbaby.in/about): who we are
+- [Grievance](https://trustfundbaby.in/grievance): complaint and escalation process
+- [Disclaimer](https://trustfundbaby.in/disclaimer): full regulatory disclosures
+
+## Regulatory notice
+
+Mutual fund investments are subject to market risks. Read all scheme-related
+documents carefully before investing. Trust Fund Baby is a distribution platform
+and does not provide investment, legal or tax advice.

@@ -45,20 +45,20 @@ export function SiteFooter() {
             <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
               <li>
                 <a
-                  href="mailto:hello@trustfundbaby.in"
+                  href="mailto:sanchit@trustfundbaby.in"
                   className="inline-flex items-center gap-2 underline-offset-4 hover:text-foreground hover:underline"
                 >
                   <MailIcon className="size-4" />
-                  hello@trustfundbaby.in
+                  sanchit@trustfundbaby.in
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+919819010129"
                   className="inline-flex items-center gap-2 underline-offset-4 hover:text-foreground hover:underline"
                 >
                   <PhoneIcon className="size-4" />
-                  +91 98765 43210
+                  +91 98190 10129
                 </a>
               </li>
             </ul>
@@ -95,12 +95,12 @@ export function SiteFooter() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p>
               <span className="font-mono">ARN-368678</span> · Grievance
-              officer: TFB EduVest LLP ·{" "}
+              officer: Sanchit Kedia ·{" "}
               <a
-                href="mailto:hello@trustfundbaby.in"
+                href="mailto:sanchit@trustfundbaby.in"
                 className="underline underline-offset-4 hover:text-foreground"
               >
-                hello@trustfundbaby.in
+                sanchit@trustfundbaby.in
               </a>
             </p>
             <p>© 2026 TFB EduVest LLP. All rights reserved.</p>

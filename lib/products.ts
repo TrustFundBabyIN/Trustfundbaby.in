@@ -28,6 +28,8 @@ export type Product = {
   entryNote: string;
   highlights: { icon: LucideIcon; title: string; description: string }[];
   steps: { title: string; description: string }[];
+  /** True when the product is not yet open for sign-up. */
+  comingSoon?: boolean;
 };
 
 export const products: Product[] = [
@@ -39,9 +41,9 @@ export const products: Product[] = [
     who: "For a parent with monthly income",
     tagline: "Small, regular SIPs into your child's future",
     description:
-      "A monthly SIP account you can start today, free — on your own PAN, or your child's. Nothing is locked in: pause, change the amount, or withdraw whenever you need to, then convert it into an irrevocable Deed once you're ready to make it permanent.",
-    entry: "₹1,000/mo",
-    entryNote: "Minimum SIP, no PAN required to start",
+      "A monthly SIP account you can start today, free — on your own PAN, or a trust fund PAN once you've made it permanent. Nothing is locked in: pause, change the amount, or withdraw whenever you need to, then convert it into an irrevocable Deed once you're ready to make it permanent.",
+    entry: "₹100/mo",
+    entryNote: "Minimum monthly SIP",
     highlights: [
       {
         icon: SlidersHorizontalIcon,
@@ -67,7 +69,7 @@ export const products: Product[] = [
     steps: [
       {
         title: "Set your monthly amount",
-        description: "Start from ₹1,000/month — no PAN needed to open the account.",
+        description: "Start from ₹100/month, invested on your own PAN.",
       },
       {
         title: "SIP runs automatically",
@@ -92,7 +94,7 @@ export const products: Product[] = [
     tagline: "Invest once, draw an income for as long as it lasts",
     description:
       "Put a lump sum to work in one go, then draw a monthly income from it on your own schedule. Ideal for a bonus, an inheritance, or proceeds from selling an asset that you want working for your child instead of sitting idle.",
-    entry: "₹5,00,000",
+    entry: "₹21,000",
     entryNote: "Minimum lump sum to open a Harvest account",
     highlights: [
       {
@@ -119,7 +121,7 @@ export const products: Product[] = [
     steps: [
       {
         title: "Invest your lump sum",
-        description: "Start from ₹5,00,000, deployed into a portfolio you choose.",
+        description: "Start from ₹21,000, deployed into a portfolio you choose.",
       },
       {
         title: "Set a drawdown plan",
@@ -137,14 +139,15 @@ export const products: Product[] = [
   },
   {
     slug: "deed",
+    comingSoon: true,
     icon: LandmarkIcon,
     name: "TFB Deed",
     emotion: "Protection & personalisation",
     who: "For a parent wanting protection and a plan",
     tagline: "A legally irrevocable trust, designed once, on the website",
     description:
-      "The permanent version of Seed or Harvest — a legally irrevocable trust with a vesting age and payout plan you design once. e-KYC, trust PAN, and e-sign all run through Digio, fully digital, so the deed executes without a chartered accountant or months of paperwork.",
-    entry: "₹20,000",
+      "The permanent version of Seed or Harvest — a legally irrevocable trust with a vesting age and payout plan you design once. Trust deed drafting, e-stamping, trust PAN application and e-sign are all handled on your behalf, so the deed is executed without a chartered accountant or months of paperwork.",
+    entry: "₹50,000",
     entryNote: "One-time, fully digital",
     highlights: [
       {
@@ -160,7 +163,7 @@ export const products: Product[] = [
       {
         icon: FileSignatureIcon,
         title: "Fully digital execution",
-        description: "e-KYC, trust PAN application, e-stamping, and e-sign, all through Digio.",
+        description: "Trust PAN application, e-stamping, and e-sign, all handled for you."
       },
       {
         icon: ClipboardListIcon,
@@ -175,7 +178,7 @@ export const products: Product[] = [
       },
       {
         title: "Complete e-KYC",
-        description: "Verify identity digitally through Digio, no paperwork or branch visit.",
+        description: "Verify identity digitally, with no paperwork or branch visit.",
       },
       {
         title: "Trust PAN & e-sign",

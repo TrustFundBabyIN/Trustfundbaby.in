@@ -21,8 +21,8 @@ const products = [
     icon: SproutIcon,
     name: "TFB Seed",
     who: "For a parent with monthly income",
-    what: "Small, regular SIPs into your child's future — on your own PAN, or theirs.",
-    entry: "₹1,000/mo",
+    what: "Small, regular SIPs into your child's future — on your own PAN, or a trust fund PAN.",
+    entry: "₹100/mo",
     emotion: "Accumulation",
   },
   {
@@ -30,7 +30,7 @@ const products = [
     name: "TFB Harvest",
     who: "For anyone with a lump sum",
     what: "Invest once, then draw a monthly income from it for as long as it lasts.",
-    entry: "₹5,00,000",
+    entry: "₹21,000",
     emotion: "Decumulation",
   },
   {
@@ -38,7 +38,7 @@ const products = [
     name: "TFB Deed",
     who: "For a parent wanting protection and a plan",
     what: "A legally irrevocable trust with a payout plan you design once, on the website.",
-    entry: "₹20,000",
+    entry: "₹50,000",
     emotion: "Protection & personalisation",
   },
 ] as const;

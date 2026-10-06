@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "How TFB EduVest LLP collects, uses, shares and protects personal data across the Trust Fund Baby website, Academy, products, and Instagram and Facebook conversations.",
 };
 
-const CONTACT_EMAIL = "hello@trustfundbaby.in";
+const CONTACT_EMAIL = "sanchit@trustfundbaby.in";
 
 export default function PrivacyPolicyPage() {
   return (

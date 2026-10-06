@@ -24,6 +24,7 @@ const productLinks = products.map((product) => ({
 
 const links = [
   { href: "#how-it-works", label: "How it works" },
+  { href: "/blog", label: "Blog" },
   { href: "#education", label: "Education" },
   { href: "#pricing", label: "Pricing" },
   { href: "#faq", label: "FAQ" },

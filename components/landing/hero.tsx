@@ -82,7 +82,7 @@ export function Hero() {
   const investedShare = Math.min(100, (invested / corpus) * 100);
 
   const stats = [
-    { value: "₹1K", label: "SIP per month, min" },
+    { value: "₹100", label: "SIP per month, min" },
     { value: `${age}yr`, label: "Vesting age" },
     { value: "108", label: "Free lessons" },
   ];
@@ -244,7 +244,7 @@ export function Hero() {
             <CardContent className="flex flex-col gap-5">
               <div className="flex flex-col gap-1">
                 <p className="text-xs text-muted-foreground">
-                  Projected at 12% CAGR
+                  Illustrative at 12% CAGR
                 </p>
                 <p className="font-heading text-4xl font-medium tracking-tight tabular-nums transition-all duration-300">
                   {formatCompactINR(corpus)}

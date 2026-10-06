@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 
 import { formatCompactINR, formatINR, sipFutureValue } from "@/lib/format";
 import { Section, SectionHeader } from "@/components/landing/section";
@@ -86,10 +87,10 @@ export function Calculator() {
           <Control
             label="Monthly SIP"
             value={monthly}
-            min={1000}
+            min={100}
             max={50000}
-            step={500}
-            minLabel="₹1,000"
+            step={100}
+            minLabel="₹100"
             maxLabel="₹50,000"
             onChange={setMonthly}
           />
@@ -177,10 +178,33 @@ export function Calculator() {
         </Card>
       </div>
 
-      <p className="mt-8 max-w-3xl text-xs text-muted-foreground">
-        Based on historical equity mutual fund returns. Not a guarantee. Past
-        performance does not indicate future results.
-      </p>
+      <div className="mt-8 max-w-3xl border-t pt-6">
+        <p className="text-xs font-medium text-foreground">
+          Disclaimer
+        </p>
+        <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+          This calculator is for illustration only. The figures shown are not a
+          projection, forecast, or promise of returns. They are calculated using
+          the rate <em>you</em> choose, and actual returns from any mutual fund
+          scheme will differ — they may be lower, and you may get back less than
+          you invested.
+        </p>
+        <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+          <strong className="font-medium text-foreground">
+            Mutual fund investments are subject to market risks. Read all
+            scheme-related documents carefully before investing.
+          </strong>{" "}
+          Past performance does not indicate future results. Comparisons with
+          fixed-rate instruments such as PPF use published rates for illustration
+          and are not a recommendation. TFB EduVest LLP is an AMFI-registered
+          distributor (ARN-368678) and does not provide investment advice. Tax
+          treatment depends on your circumstances — consult a chartered
+          accountant.{" "}
+          <Link href="/disclaimer" className="underline underline-offset-4">
+            Full disclaimer
+          </Link>
+        </p>
+      </div>
     </Section>
   );
 }

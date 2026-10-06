@@ -23,7 +23,7 @@ const tiers = [
     price: "₹0",
     priceNote: "to open",
     features: [
-      "SIP from ₹1,000/mo, on your own PAN or theirs",
+      "SIP from ₹100/mo, on your own PAN or a trust fund PAN",
       "Full dashboard — track corpus & growth",
       "108 education modules, free",
       "Well-wisher gifting links",
@@ -38,7 +38,7 @@ const tiers = [
     price: "₹0",
     priceNote: "to open",
     features: [
-      "Lump sum from ₹5,00,000",
+      "Lump sum from ₹21,000",
       "Monthly income, on your terms",
       "Full dashboard — track corpus & growth",
       "Well-wisher gifting links",
@@ -50,7 +50,7 @@ const tiers = [
   {
     name: "Deed",
     description: "Make it a legally irrevocable trust",
-    price: "₹20,000",
+    price: "₹50,000",
     priceNote: "one-time",
     features: [
       "Convert an existing Seed or Harvest account",
@@ -144,8 +144,7 @@ export function Pricing() {
       </motion.div>
 
       <p className="mt-8 text-sm text-muted-foreground">
-        Optional extras: child PAN application ₹500 · ITR filing ₹5,000 per
-        taxable redemption.
+        Optional extras: ITR filing ₹5,000 per taxable redemption.
       </p>
     </Section>
   );

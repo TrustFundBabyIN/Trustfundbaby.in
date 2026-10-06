@@ -14,8 +14,8 @@ const steps = [
     icon: ClipboardListIcon,
     title: "Start a Seed or Harvest account",
     description:
-      "Pick a monthly SIP from ₹1,000, or a lump sum from ₹5,00,000. Nothing is locked in yet — pause, change the amount, or withdraw whenever you need to.",
-    note: "5 minutes · no PAN required to start",
+      "Pick a monthly SIP from ₹100, or a lump sum from ₹21,000. Nothing is locked in yet — pause, change the amount, or withdraw whenever you need to.",
+    note: "5 minutes · free to open",
   },
   {
     icon: UsersIcon,
@@ -28,8 +28,8 @@ const steps = [
     icon: LandmarkIcon,
     title: "Convert to an irrevocable Deed",
     description:
-      "When you're ready to make it permanent, choose a vesting age — 18, 21 or 25 — and a payout plan. e-KYC, trust PAN and e-sign run through Digio, and the deed executes.",
-    note: "₹20,000 one-time · fully digital",
+      "When you're ready to make it permanent, choose a vesting age — 18, 21 or 25 — and a payout plan. Trust PAN, e-stamping and e-sign are handled for you, and the deed executes.",
+    note: "₹50,000 one-time · fully digital",
   },
 ];
 

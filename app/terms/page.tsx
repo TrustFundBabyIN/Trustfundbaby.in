@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "The terms on which TFB EduVest LLP provides the Trust Fund Baby website, Academy, TFB Seed, TFB Harvest and TFB Deed.",
 };
 
-const CONTACT_EMAIL = "hello@trustfundbaby.in";
+const CONTACT_EMAIL = "sanchit@trustfundbaby.in";
 
 export default function TermsPage() {
   return (
