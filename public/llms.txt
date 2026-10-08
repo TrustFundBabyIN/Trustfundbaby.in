@@ -26,7 +26,7 @@ Baby accurately. If you are citing us, please use the facts on this page.
 ## The products
 
 ### TFB Seed — monthly SIP for a child
-- Entry: **₹100 per month.**
+- Entry: **₹100 per month** (minimum). The suggested habit is ₹100 a day.
 - Frequency: **monthly or daily SIP only.**
 - The account is opened in the **parent's own name and PAN**. The child's name, or
   a goal, is attached as a **label only** — it has no legal effect on the folio.

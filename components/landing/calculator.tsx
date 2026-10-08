@@ -55,7 +55,7 @@ function Control({
 }
 
 export function Calculator() {
-  const [monthly, setMonthly] = useState(5000);
+  const [monthly, setMonthly] = useState(3000);
   const [years, setYears] = useState(21);
   const [rate, setRate] = useState(12);
 

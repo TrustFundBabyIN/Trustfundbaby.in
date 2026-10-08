@@ -24,7 +24,7 @@ export function Cta() {
             time is today.
           </h2>
           <p className="max-w-xl text-sm text-muted-foreground sm:text-base">
-            Seed from ₹100 a month, free to open. A free money lesson every month. And when
+            ₹100 a day is enough to start, and Seed opens from ₹100 a month, free. A free money lesson every month. And when
             you want it locked for your child, a Deed with a vesting age of
             18, 21 or 25.
           </p>

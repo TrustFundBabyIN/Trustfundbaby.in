@@ -14,7 +14,7 @@ const steps = [
     icon: ClipboardListIcon,
     title: "Start a Seed or Harvest account",
     description:
-      "Pick a monthly SIP from ₹100, or a lump sum from ₹21,000. Nothing is locked in yet — pause, change the amount, or withdraw whenever you need to.",
+      "Start with ₹100 a day (a monthly SIP from ₹100 also works), or a lump sum from ₹21,000. Nothing is locked in yet — pause, change the amount, or withdraw whenever you need to.",
     note: "5 minutes · free to open",
   },
   {

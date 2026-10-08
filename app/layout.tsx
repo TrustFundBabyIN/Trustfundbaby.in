@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s · Trust Fund Baby",
   },
   description:
-    "Start a SIP for your child from ₹100 a month on your own PAN, invite family to contribute, and lock it into a legally irrevocable trust with a Deed when you're ready — plus a free money lesson every month, from age 13 to 21.",
+    "Put aside ₹100 a day for your child, on your own PAN (SIPs from ₹100 a month), invite family to contribute, and lock it into a legally irrevocable trust with a Deed when you're ready — plus a free money lesson every month, from age 13 to 21.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     url: "https://trustfundbaby.in",
     title: "Trust Fund Baby — Start small. Set them up for life.",
     description:
-      "Invest for a child from ₹100 a month, in your own name. Lock it into a legally irrevocable trust with a Deed when you're ready.",
+      "Invest for a child from ₹100 a day, in your own name. Lock it into a legally irrevocable trust with a Deed when you're ready.",
   },
   twitter: { card: "summary_large_image" },
 };
@@ -62,7 +62,17 @@ const structuredData = {
       "@type": "Organization",
       "@id": "https://trustfundbaby.in/#org",
       name: "Trust Fund Baby",
+      alternateName: ["TrustFundBaby", "Trust Fund Baby India", "TFB", "TFB EduVest"],
       legalName: "TFB EduVest LLP",
+      logo: "https://trustfundbaby.in/logo-full-color.png",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Malad East, Mumbai",
+        postalCode: "400097",
+        addressRegion: "Maharashtra",
+        addressCountry: "IN",
+      },
+      sameAs: ["https://instagram.com/trustfundbabyin"],
       url: "https://trustfundbaby.in",
       email: "sanchit@trustfundbaby.in",
       telephone: "+91-98190-10129",
@@ -75,6 +85,7 @@ const structuredData = {
       "@id": "https://trustfundbaby.in/#website",
       url: "https://trustfundbaby.in",
       name: "Trust Fund Baby",
+      alternateName: "TrustFundBaby",
       publisher: { "@id": "https://trustfundbaby.in/#org" },
     },
     {
@@ -87,7 +98,7 @@ const structuredData = {
         "@type": "Offer",
         price: "100",
         priceCurrency: "INR",
-        availability: "https://schema.org/InStock",
+        availability: "https://schema.org/PreOrder",
         url: "https://trustfundbaby.in/products/seed",
       },
     },
@@ -101,7 +112,7 @@ const structuredData = {
         "@type": "Offer",
         price: "21000",
         priceCurrency: "INR",
-        availability: "https://schema.org/InStock",
+        availability: "https://schema.org/PreOrder",
         url: "https://trustfundbaby.in/products/harvest",
       },
     },

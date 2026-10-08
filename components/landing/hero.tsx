@@ -22,7 +22,7 @@ import { cn } from "@/lib/utils";
 import { formatCompactINR, sipFutureValue } from "@/lib/format";
 
 const AGES = [18, 21, 25] as const;
-const MONTHLY_SIP = 5000;
+const MONTHLY_SIP = 3000; // ₹100 a day
 const CAGR = 12;
 
 const assurances = [
@@ -85,7 +85,7 @@ export function Hero() {
   const investedShare = Math.min(100, (invested / corpus) * 100);
 
   const stats = [
-    { value: "₹100", label: "SIP per month, min" },
+    { value: "₹100", label: "A day is enough to start" },
     { value: "₹0", label: "To open Seed or Harvest" },
     { value: "1/mo", label: "Free lesson, age 13 to 21" },
   ];
@@ -127,7 +127,7 @@ export function Hero() {
             variants={item}
             className="max-w-xl text-sm text-muted-foreground sm:text-base"
           >
-            Start a SIP from ₹100 a month, or invest a lump sum from ₹21,000.
+            Put aside ₹100 a day for your child (SIPs start from just ₹100 a month), or invest a lump sum from ₹21,000.
             Free to open. When you want it locked for your child, the Deed
             makes it a legal, irrevocable trust. Plus a free money lesson
             every month from age 13 to 21: a blog, a video and a game.
@@ -244,7 +244,7 @@ export function Hero() {
             <CardContent className="flex flex-col gap-5">
               <div className="flex flex-col gap-1">
                 <p className="text-xs text-muted-foreground">
-                  ₹5,000 a month to age <span className="tabular-nums">{age}</span>
+                  ₹100 a day (₹3,000 a month) to age <span className="tabular-nums">{age}</span>
                 </p>
                 <p className="text-sm">
                   You put in{" "}
