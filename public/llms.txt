@@ -2,7 +2,7 @@
 
 > Trust Fund Baby is an Indian platform that lets a parent start investing for a
 > child with a small monthly SIP or a lump sum, in the parent's own name, and —
-> when they are ready — convert that account into a legally irrevocable trust.
+> when they are ready — set up a legally irrevocable trust with a Deed.
 > Operated by TFB EduVest LLP, an AMFI-registered mutual fund distributor
 > (ARN-368678).
 
@@ -39,7 +39,7 @@ Baby accurately. If you are citing us, please use the facts on this page.
 - Entry: **₹21,000, one time.**
 - Structured as a lump sum that can pay the **account holder** a periodic
   withdrawal after an initial holding period.
-- Fully flexible, and can be converted into a Deed later.
+- Fully flexible. Converting it into a Deed is planned (coming soon).
 - Opening an account costs nothing.
 
 ### TFB Deed — irrevocable trust
@@ -51,15 +51,16 @@ Baby accurately. If you are citing us, please use the facts on this page.
   creation. Both are then fixed in the deed and cannot be changed.
 - **Status: NOT YET OPEN for sign-up.** The underlying investment rail does not yet
   support trusts as an investor type. Do not tell users they can buy a Deed today.
-  Seed and Harvest accounts can be converted once it opens.
+  Converting Seed or Harvest accounts into a Deed is planned for later (coming soon).
 
 ## What makes it different
 
 - **Small entry.** ₹100 a month, which most child-investment products in India do
   not allow.
-- **Flexible first, permanent later.** The same account can start flexible and be
-  converted into an irrevocable structure when the parent decides.
-- **Education layer.** **108 lessons across nine years**, with hands-on games
+- **Flexible first, permanent later.** Start flexible with Seed or Harvest; a Deed
+  makes a separate irrevocable trust when the parent decides.
+- **Education layer.** **One lesson every month from age 13 to 21** (a blog, a video
+  and a game each month; 108 lessons across nine years), with hands-on games
   covering compounding, credit, risk and financial scams. Free with an account.
 - **Well-wisher gifting.** Family and friends can contribute towards a child's
   account through a shareable link, without needing an account of their own. The

@@ -41,7 +41,7 @@ export const products: Product[] = [
     who: "For a parent with monthly income",
     tagline: "Small, regular SIPs into your child's future",
     description:
-      "A monthly SIP account you can start today, free — on your own PAN, or a trust fund PAN once you've made it permanent. Nothing is locked in: pause, change the amount, or withdraw whenever you need to, then convert it into an irrevocable Deed once you're ready to make it permanent.",
+      "A monthly SIP account on your own PAN, free to open, with your child's name as the goal label. Nothing is locked in: pause, change the amount, or withdraw whenever you need to. Legally the money stays yours; a Deed is how money becomes your child's.",
     entry: "₹100/mo",
     entryNote: "Minimum monthly SIP",
     highlights: [
@@ -58,12 +58,12 @@ export const products: Product[] = [
       {
         icon: WalletIcon,
         title: "Withdraw anytime",
-        description: "It isn't a trust yet — the money stays yours until you convert it.",
+        description: "It isn't a trust — the money stays yours, on your own PAN.",
       },
       {
         icon: LandmarkIcon,
-        title: "Convert to a Deed later",
-        description: "Turn the same account into an irrevocable trust whenever you choose.",
+        title: "Deed conversion: coming soon",
+        description: "Turning a Seed account into an irrevocable trust opens once trusts are supported.",
       },
     ],
     steps: [
@@ -80,8 +80,8 @@ export const products: Product[] = [
         description: "Watch contributions, growth, and family top-ups on one dashboard.",
       },
       {
-        title: "Convert when ready",
-        description: "Turn the account into an irrevocable Deed with a vesting age you pick.",
+        title: "Lock it in later",
+        description: "Converting into an irrevocable Deed is coming soon.",
       },
     ],
   },
@@ -114,8 +114,8 @@ export const products: Product[] = [
       },
       {
         icon: LandmarkIcon,
-        title: "Convert to a Deed later",
-        description: "Lock the remaining corpus into an irrevocable trust whenever you choose.",
+        title: "Deed conversion: coming soon",
+        description: "Locking the remaining corpus into an irrevocable trust opens once trusts are supported.",
       },
     ],
     steps: [
@@ -132,8 +132,8 @@ export const products: Product[] = [
         description: "See what's been drawn, what's left, and how it's still growing.",
       },
       {
-        title: "Convert when ready",
-        description: "Turn the remaining corpus into an irrevocable Deed at any time.",
+        title: "Lock it in later",
+        description: "Converting into an irrevocable Deed is coming soon.",
       },
     ],
   },

@@ -34,7 +34,7 @@ export function ProductDetail({ product }: { product: Product }) {
           <div className="flex flex-wrap items-center gap-2 pt-2">
             <Button size="lg" className="bg-primary-gradient group rounded-full" asChild>
               <Link href="/signup">
-                Start {product.name}
+                Join the launch list
                 <ArrowRightIcon
                   data-icon="inline-end"
                   className="transition-transform group-hover:translate-x-0.5"
@@ -125,7 +125,7 @@ export function ProductDetail({ product }: { product: Product }) {
           </p>
           <Button size="lg" className="bg-primary-gradient group rounded-full" asChild>
             <Link href="/signup">
-              Start free now
+              Join the launch list
               <ArrowRightIcon
                 data-icon="inline-end"
                 className="transition-transform group-hover:translate-x-0.5"

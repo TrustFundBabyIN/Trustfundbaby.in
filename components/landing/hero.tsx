@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowRightIcon, BadgeCheckIcon, ShieldCheckIcon } from "lucide-react";
+import { ArrowRightIcon, BadgeCheckIcon } from "lucide-react";
 import {
   motion,
   useMotionValue,
@@ -25,7 +25,11 @@ const AGES = [18, 21, 25] as const;
 const MONTHLY_SIP = 5000;
 const CAGR = 12;
 
-const assurances = ["Irrevocable by design", "Bank-grade security", "108 free lessons"];
+const assurances = [
+  "AMFI-registered, ARN-368678",
+  "Your money stays with the fund houses",
+  "A free lesson every month",
+];
 const contributors = ["N", "D", "M", "A"];
 
 const container: Variants = {
@@ -78,13 +82,12 @@ export function Hero() {
   const age = AGES[ageIndex];
   const corpus = sipFutureValue(MONTHLY_SIP, age, CAGR);
   const invested = MONTHLY_SIP * age * 12;
-  const multiple = corpus / invested;
   const investedShare = Math.min(100, (invested / corpus) * 100);
 
   const stats = [
     { value: "₹100", label: "SIP per month, min" },
-    { value: `${age}yr`, label: "Vesting age" },
-    { value: "108", label: "Free lessons" },
+    { value: "₹0", label: "To open Seed or Harvest" },
+    { value: "1/mo", label: "Free lesson, age 13 to 21" },
   ];
 
   return (
@@ -109,7 +112,7 @@ export function Hero() {
         <div className="flex flex-col items-start gap-6">
           <motion.div variants={item}>
             <Badge variant="outline">
-              India&apos;s first irrevocable children&apos;s trust fund
+              An irrevocable trust for your child, built on mutual funds
             </Badge>
           </motion.div>
 
@@ -124,19 +127,16 @@ export function Hero() {
             variants={item}
             className="max-w-xl text-sm text-muted-foreground sm:text-base"
           >
-            Start a SIP or lump-sum account today, free — convert it into a
-            legally irrevocable trust whenever you&apos;re ready. Your child
-            receives the corpus at{" "}
-            <span className="font-medium text-foreground tabular-nums">
-              {age}
-            </span>
-            , plus free financial education from age 13.
+            Start a SIP from ₹100 a month, or invest a lump sum from ₹21,000.
+            Free to open. When you want it locked for your child, the Deed
+            makes it a legal, irrevocable trust. Plus a free money lesson
+            every month from age 13 to 21: a blog, a video and a game.
           </motion.p>
 
           <motion.div
             variants={item}
             role="group"
-            aria-label="Choose your child's payout age"
+            aria-label="Choose how many years you save"
             className="flex items-center gap-1.5 rounded-full border bg-muted/40 p-1"
           >
             {AGES.map((value, index) => (
@@ -169,8 +169,8 @@ export function Hero() {
 
           <motion.div variants={item} className="flex flex-wrap items-center gap-2">
             <Button size="lg" className="bg-primary-gradient group rounded-full" asChild>
-              <Link href="/signup">
-                Start free
+              <Link href="#launch-list">
+                Join the launch list
                 <ArrowRightIcon
                   data-icon="inline-end"
                   className="transition-transform group-hover:translate-x-0.5"
@@ -244,13 +244,19 @@ export function Hero() {
             <CardContent className="flex flex-col gap-5">
               <div className="flex flex-col gap-1">
                 <p className="text-xs text-muted-foreground">
-                  Illustrative at 12% CAGR
+                  ₹5,000 a month to age <span className="tabular-nums">{age}</span>
+                </p>
+                <p className="text-sm">
+                  You put in{" "}
+                  <span className="font-medium tabular-nums">
+                    {formatCompactINR(invested)}
+                  </span>
                 </p>
                 <p className="font-heading text-4xl font-medium tracking-tight tabular-nums transition-all duration-300">
                   {formatCompactINR(corpus)}
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  At age <span className="tabular-nums">{age}</span> · ₹5K/month
+                  Illustrative value, assuming 12% a year
                 </p>
               </div>
 
@@ -262,12 +268,13 @@ export function Hero() {
                   />
                 </div>
                 <div className="flex items-center justify-between text-xs text-muted-foreground">
-                  <span>Invested {formatCompactINR(invested)}</span>
-                  <span className="flex items-center gap-1 font-medium text-foreground">
-                    <ShieldCheckIcon className="size-3.5" />
-                    {multiple.toFixed(1)}x growth
-                  </span>
+                  <span>You put in {formatCompactINR(invested)}</span>
+                  <span>Illustrative {formatCompactINR(corpus)}</span>
                 </div>
+                <p className="text-[11px] leading-snug text-muted-foreground">
+                  Illustrative only, assuming 12% a year. Not a promise; mutual
+                  fund returns can be lower or negative.
+                </p>
               </div>
 
               <Separator />

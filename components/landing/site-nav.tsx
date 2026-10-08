@@ -186,7 +186,7 @@ export function SiteNav() {
             <Link href="/signin">Sign in</Link>
           </Button>
           <Button size="sm" className="bg-primary-gradient rounded-full" asChild>
-            <Link href="/signup">Start free</Link>
+            <Link href="/signup">Join the launch list</Link>
           </Button>
         </div>
       </div>

@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s · Trust Fund Baby",
   },
   description:
-    "Start a SIP or lump-sum account for your child from ₹100 a month, invite family to contribute, and convert it into a legally irrevocable trust when you're ready — plus 108 free financial lessons.",
+    "Start a SIP for your child from ₹100 a month on your own PAN, invite family to contribute, and lock it into a legally irrevocable trust with a Deed when you're ready — plus a free money lesson every month, from age 13 to 21.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     url: "https://trustfundbaby.in",
     title: "Trust Fund Baby — Start small. Set them up for life.",
     description:
-      "Invest for a child from ₹100 a month, in your own name. Convert it into a legally irrevocable trust when you're ready.",
+      "Invest for a child from ₹100 a month, in your own name. Lock it into a legally irrevocable trust with a Deed when you're ready.",
   },
   twitter: { card: "summary_large_image" },
 };

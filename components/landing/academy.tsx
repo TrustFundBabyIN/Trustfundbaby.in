@@ -59,7 +59,7 @@ export function Academy() {
       <SectionHeader
         eyebrow="TFB Academy — free"
         title="They don't just get money. They get wisdom."
-        description="108 modules across 9 years. Your child learns money the way school should have taught it — from basics at 13 to wealth management at 21."
+        description="One new lesson every month, from age 13 to 21: a blog to read, a video to watch and a game to play. That is 108 lessons over 9 years, free. Your child learns money the way school should have taught it — from basics at 13 to wealth management at 21."
       />
 
       <ol className="mt-10 flex flex-wrap items-center gap-1.5">
@@ -111,8 +111,8 @@ export function Academy() {
           </div>
 
           <p className="text-sm text-muted-foreground sm:text-base">
-            Watch, learn, practice, prove it. The same loop repeats 108 times
-            — each one a little harder, a little closer to real money
+            Watch, learn, practice, prove it. A new lesson arrives every month,
+            108 in all — each one a little harder, a little closer to real money
             decisions.
           </p>
 

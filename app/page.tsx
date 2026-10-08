@@ -9,7 +9,7 @@ import { Pricing } from "@/components/landing/pricing";
 import { Products } from "@/components/landing/products";
 import { SiteFooter } from "@/components/landing/site-footer";
 import { SiteNav } from "@/components/landing/site-nav";
-import { Testimonials } from "@/components/landing/testimonials";
+import { LaunchList } from "@/components/landing/launch-list";
 
 export default function Home() {
   return (
@@ -22,8 +22,8 @@ export default function Home() {
         <Calculator />
         <Family className="border-y bg-muted/30" />
         <Academy />
-        <Testimonials className="border-y bg-muted/30" />
         <Pricing />
+        <LaunchList className="border-y bg-muted/30" />
         <Faq />
         <Cta />
       </main>

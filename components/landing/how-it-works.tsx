@@ -26,10 +26,10 @@ const steps = [
   },
   {
     icon: LandmarkIcon,
-    title: "Convert to an irrevocable Deed",
+    title: "Lock it in with a Deed",
     description:
-      "When you're ready to make it permanent, choose a vesting age — 18, 21 or 25 — and a payout plan. Trust PAN, e-stamping and e-sign are handled for you, and the deed executes.",
-    note: "₹50,000 one-time · fully digital",
+      "When you're ready to make it permanent, a Deed creates a separate, irrevocable trust for your child. Pick a vesting age — 18, 21 or 25 — and a payout plan; trust PAN, e-stamping and e-sign are handled for you.",
+    note: "₹50,000 one-time · fully digital · opening soon",
   },
 ];
 

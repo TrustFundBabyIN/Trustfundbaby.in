@@ -39,7 +39,7 @@ export function SiteFooter() {
           <div className="flex flex-col gap-4">
             <Brand />
             <p className="max-w-xs text-sm text-muted-foreground">
-              India&apos;s first irrevocable trust fund platform for children.
+              Investing for your child, from ₹100 a month.
               Start small. Set them up for life.
             </p>
             <ul className="flex flex-col gap-2 text-sm text-muted-foreground">

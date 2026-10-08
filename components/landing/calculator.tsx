@@ -68,7 +68,6 @@ export function Calculator() {
       corpus,
       invested,
       returns: corpus - invested,
-      multiple: corpus / invested,
       ppf,
       extra: corpus - ppf,
     };
@@ -78,8 +77,8 @@ export function Calculator() {
     <Section>
       <SectionHeader
         eyebrow="Interactive calculator"
-        title="See your child's future"
-        description="Drag the sliders to see how small monthly SIPs compound over time."
+        title="See what you put in, and an illustration of what it could become"
+        description="Drag the sliders. What you put in is exact; the value at the end is only an illustration."
       />
 
       <div className="mt-12 grid gap-10 lg:grid-cols-2 lg:items-start">
@@ -108,10 +107,10 @@ export function Calculator() {
             label="Expected returns (%)"
             value={rate}
             min={7}
-            max={25}
+            max={15}
             step={0.5}
             minLabel="7%"
-            maxLabel="25%"
+            maxLabel="15%"
             onChange={setRate}
           />
           <p className="text-sm text-muted-foreground">
@@ -123,13 +122,23 @@ export function Calculator() {
           <CardContent className="flex flex-col gap-6">
             <div className="flex flex-col gap-1">
               <p className="text-xs text-muted-foreground">
-                Your child receives after {years} years
+                You put in over {years} years
+              </p>
+              <p className="text-lg font-medium tabular-nums">
+                {formatINR(result.invested)}{" "}
+                <span className="text-sm font-normal text-muted-foreground">
+                  ({formatINR(monthly)} × {years * 12} months)
+                </span>
+              </p>
+              <p className="mt-3 text-xs text-muted-foreground">
+                Illustrative value after {years} years
               </p>
               <p className="font-heading text-4xl font-medium tracking-tight tabular-nums transition-all duration-300 sm:text-5xl">
                 {formatCompactINR(result.corpus)}
               </p>
-              <p className="text-sm text-muted-foreground tabular-nums">
-                {result.multiple.toFixed(2)}x growth multiple
+              <p className="text-xs leading-snug text-muted-foreground">
+                Illustrative only, assuming {rate}% a year. Not a promise;
+                mutual fund returns can be lower or negative.
               </p>
             </div>
 
@@ -143,8 +152,8 @@ export function Calculator() {
                 />
               </div>
               <div className="flex items-center justify-between text-xs text-muted-foreground">
-                <span>Invested {formatCompactINR(result.invested)}</span>
-                <span>Returns {formatCompactINR(result.returns)}</span>
+                <span>You put in {formatCompactINR(result.invested)}</span>
+                <span>Illustrative gain {formatCompactINR(result.returns)}</span>
               </div>
             </div>
 

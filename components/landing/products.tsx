@@ -21,7 +21,7 @@ const products = [
     icon: SproutIcon,
     name: "TFB Seed",
     who: "For a parent with monthly income",
-    what: "Small, regular SIPs into your child's future — on your own PAN, or a trust fund PAN.",
+    what: "Small, regular SIPs on your own PAN, tagged to your child. Pause or stop any time.",
     entry: "₹100/mo",
     emotion: "Accumulation",
   },
@@ -126,7 +126,7 @@ export function Products() {
             <SectionHeader
               eyebrow="Three products, one story"
               title="Seed, Harvest, and Deed"
-              description="Two ways to grow a corpus, and one way to lock it in for good. Scroll to move through each one — combine them, or convert one into the other whenever you're ready."
+              description="Two ways to grow a corpus, and one way to lock it in for good. Scroll to move through each one — combine them as you need. Converting Seed or Harvest into a Deed is coming soon."
             />
 
             <ol className="flex flex-col gap-1">

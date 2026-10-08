@@ -24,13 +24,14 @@ export function Cta() {
             time is today.
           </h2>
           <p className="max-w-xl text-sm text-muted-foreground sm:text-base">
-            Free to start. 108 education lessons. Irrevocable and locked in
-            for as long as you choose — 18, 21 or 25.
+            Seed from ₹100 a month, free to open. A free money lesson every month. And when
+            you want it locked for your child, a Deed with a vesting age of
+            18, 21 or 25.
           </p>
         </div>
         <Button size="lg" className="bg-primary-gradient group rounded-full" asChild>
-          <Link href="/signup">
-            Start free now
+          <Link href="#launch-list">
+            Join the launch list
             <ArrowRightIcon
               data-icon="inline-end"
               className="transition-transform group-hover:translate-x-0.5"

@@ -23,13 +23,13 @@ const tiers = [
     price: "₹0",
     priceNote: "to open",
     features: [
-      "SIP from ₹100/mo, on your own PAN or a trust fund PAN",
+      "SIP from ₹100/mo, on your own PAN, tagged to your child",
       "Full dashboard — track corpus & growth",
-      "108 education modules, free",
+      "A free lesson every month (blog, video, game)",
       "Well-wisher gifting links",
-      "Bank-grade security",
+      "Pause or stop any time",
     ],
-    cta: "Start a Seed account",
+    cta: "Join the launch list",
     highlighted: true,
   },
   {
@@ -42,9 +42,9 @@ const tiers = [
       "Monthly income, on your terms",
       "Full dashboard — track corpus & growth",
       "Well-wisher gifting links",
-      "Bank-grade security",
+      "Your money stays with the fund houses",
     ],
-    cta: "Start a Harvest account",
+    cta: "Join the launch list",
     highlighted: false,
   },
   {
@@ -53,13 +53,13 @@ const tiers = [
     price: "₹50,000",
     priceNote: "one-time",
     features: [
-      "Convert an existing Seed or Harvest account",
+      "Converting a Seed or Harvest account: coming soon",
       "Irrevocable trust deed drafting",
       "Trust PAN application",
       "e-KYC & e-sign, fully digital",
       "Choose vesting age & payout plan",
     ],
-    cta: "Convert to a Deed",
+    cta: "Opening soon",
     highlighted: false,
   },
 ];
@@ -80,7 +80,7 @@ export function Pricing() {
       <SectionHeader
         eyebrow="Transparent pricing"
         title="Free to start. Pay only when it's permanent."
-        description="Opening a Seed or Harvest account costs nothing. The only real charge is converting to an irrevocable trust."
+        description="Opening a Seed or Harvest account costs nothing. The only real charge is the Deed, which makes it an irrevocable trust."
       />
 
       <motion.div
