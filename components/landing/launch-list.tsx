@@ -10,12 +10,17 @@ import { Input } from "@/components/ui/input";
 /**
  * Launch list: email only, with DPDP consent asked before anything is saved.
  *
- * Sign-ups go to a Brevo hosted form (free plan). Set NEXT_PUBLIC_BREVO_FORM_URL
- * at build time to the form's action URL (Brevo → Forms → your form → Share →
- * "HTML code", the <form action="..."> value). Until it is set, the form
- * renders but tells the visitor that sign-ups open shortly.
+ * Sign-ups go to a Google Apps Script web app that appends them to the
+ * "TFB Launch List" Google Sheet (free). The script lives in
+ * brahma-vault/businesses/tfb/website-ops/launch-list-apps-script.gs.
+ * Until LAUNCH_LIST_URL is set, the form renders but tells the visitor that
+ * sign-ups open shortly.
  */
-const BREVO_FORM_URL = process.env.NEXT_PUBLIC_BREVO_FORM_URL ?? "";
+const LAUNCH_LIST_URL =
+  "https://script.google.com/macros/s/AKfycbx9vmGXo8HED4J2wjPt9SZmD6hAZeFf-DJcxuNYGcj89ByXiKUb-eh3SlZMuip5KK9KpQ/exec";
+
+const CONSENT_TEXT =
+  "I agree that Trust Fund Baby may email me about the launch and my account. I can withdraw this any time.";
 
 type Status = "idle" | "sending" | "done" | "error";
 
@@ -23,21 +28,25 @@ export function LaunchListForm() {
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
+  const [honeypot, setHoneypot] = useState("");
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!consent || !email) return;
-    if (!BREVO_FORM_URL) {
+    if (!LAUNCH_LIST_URL) {
       setStatus("error");
       return;
     }
     setStatus("sending");
     try {
-      const body = new FormData();
-      body.append("EMAIL", email);
-      body.append("email_address_check", "");
-      body.append("locale", "en");
-      await fetch(BREVO_FORM_URL, { method: "POST", body, mode: "no-cors" });
+      const body = new URLSearchParams({
+        email,
+        consent: "yes",
+        consent_text: CONSENT_TEXT,
+        page: window.location.pathname,
+        company: honeypot,
+      });
+      await fetch(LAUNCH_LIST_URL, { method: "POST", body, mode: "no-cors" });
       setStatus("done");
     } catch {
       setStatus("error");
@@ -85,11 +94,18 @@ export function LaunchListForm() {
           onChange={(event) => setConsent(event.target.checked)}
           className="mt-0.5 size-4 shrink-0 accent-[var(--color-primary)]"
         />
-        <span>
-          I agree that Trust Fund Baby may email me about the launch and my
-          account. I can withdraw this any time.
-        </span>
+        <span>{CONSENT_TEXT}</span>
       </label>
+      <input
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        value={honeypot}
+        onChange={(event) => setHoneypot(event.target.value)}
+        className="hidden"
+      />
       {status === "error" && (
         <p role="alert" className="text-xs text-muted-foreground">
           Sign-ups open shortly. Please try again in a day or two, or write to
