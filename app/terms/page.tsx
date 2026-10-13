@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { LegalSection, LegalShell } from "@/components/legal/legal-shell";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/terms/" },
   title: "Terms of service",
   description:
     "The terms on which TFB EduVest LLP provides the Trust Fund Baby website, Academy, TFB Seed, TFB Harvest and TFB Deed.",

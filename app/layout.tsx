@@ -32,7 +32,6 @@ export const metadata: Metadata = {
   },
   description:
     "Put aside ₹100 a day for your child, on your own PAN (SIPs from ₹100 a month), invite family to contribute, and lock it into a legally irrevocable trust with a Deed when you're ready — plus a free money lesson every month, from age 13 to 21.",
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName: "Trust Fund Baby",
@@ -46,7 +45,9 @@ export const metadata: Metadata = {
 
 /**
  * Structured data. Two purposes:
- *  1. Google rich results for Organization + the product FAQ.
+ *  1. Google rich results for Organization + the product FAQ. Products are
+ *     typed FinancialProduct (not Product): they are services, not shop goods,
+ *     so Google must not treat them as merchant listings.
  *  2. AI engines quote structured data almost verbatim, so keeping it accurate
  *     is how we control how ChatGPT/Perplexity/Gemini describe us.
  *
@@ -89,11 +90,12 @@ const structuredData = {
       publisher: { "@id": "https://trustfundbaby.in/#org" },
     },
     {
-      "@type": "Product",
+      "@type": "FinancialProduct",
       name: "TFB Seed",
       description:
         "A monthly SIP for a child, opened in the parent's own name and PAN. Entry ₹100 per month. The child's name is attached as a label only.",
-      brand: { "@id": "https://trustfundbaby.in/#org" },
+      provider: { "@id": "https://trustfundbaby.in/#org" },
+      areaServed: "IN",
       offers: {
         "@type": "Offer",
         price: "100",
@@ -103,11 +105,12 @@ const structuredData = {
       },
     },
     {
-      "@type": "Product",
+      "@type": "FinancialProduct",
       name: "TFB Harvest",
       description:
         "A lump-sum account of ₹21,000, held for a child, which can pay the account holder a periodic withdrawal later.",
-      brand: { "@id": "https://trustfundbaby.in/#org" },
+      provider: { "@id": "https://trustfundbaby.in/#org" },
+      areaServed: "IN",
       offers: {
         "@type": "Offer",
         price: "21000",
@@ -117,11 +120,12 @@ const structuredData = {
       },
     },
     {
-      "@type": "Product",
+      "@type": "FinancialProduct",
       name: "TFB Deed",
       description:
         "A legally irrevocable private trust for one child with its own PAN, created for ₹50,000 one time. Not yet open for sign-up.",
-      brand: { "@id": "https://trustfundbaby.in/#org" },
+      provider: { "@id": "https://trustfundbaby.in/#org" },
+      areaServed: "IN",
       offers: {
         "@type": "Offer",
         price: "50000",

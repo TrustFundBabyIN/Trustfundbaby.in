@@ -8,6 +8,7 @@ import { getProduct } from "@/lib/products";
 const product = getProduct("harvest")!;
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/products/harvest/" },
   title: product.tagline,
   description: product.description,
 };

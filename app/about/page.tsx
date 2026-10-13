@@ -7,6 +7,7 @@ import { Section, SectionHeader } from "@/components/landing/section";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about/" },
   title: "About us",
   description:
     "Trust Fund Baby is built by TFB EduVest LLP, an AMFI-registered mutual fund distributor (ARN-368678), so parents can start small for a child and make it permanent when they are ready.",

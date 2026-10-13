@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { SiteFooter } from "@/components/landing/site-footer";
 import { SiteNav } from "@/components/landing/site-nav";
 
-export const metadata: Metadata = { title: "Academy" };
+export const metadata: Metadata = {
+  title: "Academy",
+  alternates: { canonical: "/academy/" },
+};
 
 export default function AcademyPage() {
   return (

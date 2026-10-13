@@ -7,6 +7,7 @@ import { Section, SectionHeader } from "@/components/landing/section";
 import { posts } from "@/lib/blog";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/blog/" },
   title: "Blog",
   description:
     "Plain-language writing on investing for a child in India — SIPs, taxation, compounding, and the paperwork behind an irrevocable trust.",

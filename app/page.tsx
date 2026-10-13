@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { Academy } from "@/components/landing/academy";
 import { Calculator } from "@/components/landing/calculator";
 import { Cta } from "@/components/landing/cta";
@@ -10,6 +12,8 @@ import { Products } from "@/components/landing/products";
 import { SiteFooter } from "@/components/landing/site-footer";
 import { SiteNav } from "@/components/landing/site-nav";
 import { LaunchList } from "@/components/landing/launch-list";
+
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 export default function Home() {
   return (

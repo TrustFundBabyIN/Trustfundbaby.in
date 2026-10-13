@@ -3,7 +3,11 @@ import { SiteFooter } from "@/components/landing/site-footer";
 import { SiteNav } from "@/components/landing/site-nav";
 import { LaunchListForm } from "@/components/landing/launch-list";
 
-export const metadata: Metadata = { title: "Join the launch list" };
+export const metadata: Metadata = {
+  title: "Join the launch list",
+  alternates: { canonical: "/signup/" },
+  robots: { index: false, follow: true },
+};
 
 export default function SignupPage() {
   return (

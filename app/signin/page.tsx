@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { SiteFooter } from "@/components/landing/site-footer";
 import { SiteNav } from "@/components/landing/site-nav";
 
-export const metadata: Metadata = { title: "Sign In" };
+export const metadata: Metadata = {
+  title: "Sign In",
+  alternates: { canonical: "/signin/" },
+  robots: { index: false, follow: true },
+};
 
 export default function SigninPage() {
   return (

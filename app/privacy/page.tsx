@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { LegalSection, LegalShell } from "@/components/legal/legal-shell";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/privacy/" },
   title: "Privacy policy",
   description:
     "How TFB EduVest LLP collects, uses, shares and protects personal data across the Trust Fund Baby website, Academy, products, and Instagram and Facebook conversations.",

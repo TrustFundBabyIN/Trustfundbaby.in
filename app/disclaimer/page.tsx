@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { LegalSection, LegalShell } from "@/components/legal/legal-shell";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/disclaimer/" },
   title: "Disclaimer",
   description:
     "Statutory and regulatory disclosures for Trust Fund Baby (TFB EduVest LLP), an AMFI-registered mutual fund distributor. ARN-368678.",

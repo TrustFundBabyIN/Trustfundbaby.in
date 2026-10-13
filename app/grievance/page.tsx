@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { LegalSection, LegalShell } from "@/components/legal/legal-shell";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/grievance/" },
   title: "Grievance redressal",
   description:
     "How to raise a complaint with Trust Fund Baby (TFB EduVest LLP) and escalate it to SEBI SCORES or AMFI, including the named grievance officer and response timelines.",
