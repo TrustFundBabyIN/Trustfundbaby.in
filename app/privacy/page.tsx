@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
   return (
     <LegalShell
       title="Privacy policy"
-      updated="19 September 2026"
+      updated="13 October 2026"
       intro="This policy explains what personal data Trust Fund Baby collects, why we collect it, who we share it with, and the choices you have. We have written it in plain language on purpose. If anything is unclear, write to us and we will explain it."
     >
       <LegalSection heading="Who we are">
@@ -81,9 +81,9 @@ export default function PrivacyPolicyPage() {
           the enquiry you started.
         </p>
         <p>
-          <strong>Technical data.</strong> IP address, device and browser type,
-          pages viewed, referring links and timestamps, collected through
-          cookies and similar technologies. See &ldquo;Cookies and
+          <strong>Technical data.</strong> Pages viewed, the website or
+          campaign link that brought you here, device and browser type,
+          approximate location (city) and timestamps. See &ldquo;Cookies and
           analytics&rdquo; below.
         </p>
       </LegalSection>
@@ -193,10 +193,28 @@ export default function PrivacyPolicyPage() {
 
       <LegalSection heading="Cookies and analytics">
         <p>
-          We use cookies that are necessary to run the site and, where you
-          accept them, cookies that tell us how the site is used so we can
-          improve it. You can block or clear cookies in your browser settings;
-          the essential ones are needed for the site to work properly.
+          We count visits with Umami, an analytics service that does not use
+          cookies and does not store your IP address. It tells us, in
+          aggregate, which pages are read and which link or campaign brought
+          visitors here.
+        </p>
+        <p>
+          We also use Google Analytics, but only if you allow it on the cookie
+          banner. If you do, Google Analytics sets cookies on your device so we
+          can see how the site is used. You can change your choice at any time
+          with &ldquo;Cookie settings&rdquo; at the bottom of every page. If you
+          withdraw it, we delete those cookies from your browser.
+        </p>
+        <p>
+          When you first visit, your browser keeps a note of the campaign link
+          and the page you arrived on. If you join the launch list, we save
+          that note with your email so we know which post brought you to us.
+          We keep only the name of the website you came from, never its full
+          address.
+        </p>
+        <p>
+          We do not use advertising cookies. You can block or clear cookies and
+          site data in your browser settings at any time.
         </p>
       </LegalSection>
 

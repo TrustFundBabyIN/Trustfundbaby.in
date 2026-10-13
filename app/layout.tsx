@@ -1,3 +1,4 @@
+import { Analytics } from "@/components/analytics";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
@@ -165,6 +166,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           <SmoothScroll>{children}</SmoothScroll>
           <Toaster position="top-center" />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

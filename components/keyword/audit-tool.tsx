@@ -18,6 +18,7 @@ import { CheckIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { track } from "@/lib/analytics";
 import { Small } from "@/components/keyword/kit";
 
 type Spend = "yes" | "limited";
@@ -161,7 +162,10 @@ export function AuditTool() {
           </div>
           <Button
             disabled={picked.length === 0}
-            onClick={() => setShown(true)}
+            onClick={() => {
+              setShown(true);
+              track("audit_run", { items: picked.length });
+            }}
             className="bg-primary-gradient h-11 self-start rounded-full px-6"
           >
             Run my audit

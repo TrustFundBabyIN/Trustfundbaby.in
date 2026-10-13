@@ -6,6 +6,7 @@ import { Section, SectionHeader } from "@/components/landing/section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { getFirstTouch, track } from "@/lib/analytics";
 
 /**
  * Launch list: email only, with DPDP consent asked before anything is saved.
@@ -45,9 +46,13 @@ export function LaunchListForm() {
         consent_text: CONSENT_TEXT,
         page: window.location.pathname,
         company: honeypot,
+        // Where this visitor first came from, so each sign-up can be credited
+        // to a reel, keyword or campaign. See lib/analytics.ts.
+        ...getFirstTouch(),
       });
       await fetch(LAUNCH_LIST_URL, { method: "POST", body, mode: "no-cors" });
       setStatus("done");
+      track("launch_list_join", { page: window.location.pathname });
     } catch {
       setStatus("error");
     }

@@ -20,6 +20,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { track } from "@/lib/analytics";
 import { Control, Illustrative, Mark, Pills, Small } from "@/components/keyword/kit";
 
 const PURPOSES = ["Education", "A first home", "Starting out in life", "Anything, once they're grown"] as const;
@@ -98,6 +99,7 @@ export function DeedTool() {
         setHold(100);
         setSigned(true);
         setStep(4);
+        track("deed_signed");
       } else {
         setHold(progress.current);
       }
@@ -262,7 +264,10 @@ export function DeedTool() {
           })}
         </div>
         {tries.length > 0 && step === 4 && (
-          <Button className="bg-primary-gradient h-11 self-start rounded-full px-6" onClick={() => setStep(5)}>
+          <Button className="bg-primary-gradient h-11 self-start rounded-full px-6" onClick={() => {
+            setStep(5);
+            track("deed_completed", { undo_tries: tries.length });
+          }}>
             {tries.length < UNDO_TRIES.length ? "Fine, it's locked. What happens next?" : "So what happens next?"}
           </Button>
         )}

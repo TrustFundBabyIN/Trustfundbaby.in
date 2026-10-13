@@ -10,6 +10,7 @@ import { useMemo, useState } from "react";
 import { GiftIcon, SproutIcon } from "lucide-react";
 
 import { formatCompactINR, formatINR } from "@/lib/format";
+import { track } from "@/lib/analytics";
 import { Card, CardContent } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { Big, Control, Illustrative, Mark, Pills, Small, lumpFutureValue } from "@/components/keyword/kit";
@@ -94,7 +95,10 @@ export function ShagunTool() {
         </button>
         <button
           type="button"
-          onClick={() => setChose("invest")}
+          onClick={() => {
+            setChose("invest");
+            track("shagun_reveal", { amount });
+          }}
           className="flex flex-col gap-3 rounded-2xl border bg-trust-blue p-6 text-left text-paper"
         >
           <SproutIcon className="size-7" />

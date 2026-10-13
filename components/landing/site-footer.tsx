@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MailIcon, PhoneIcon } from "lucide-react";
 
+import { CookieSettingsLink } from "@/components/analytics";
 import { Brand } from "@/components/brand";
 import { Separator } from "@/components/ui/separator";
 
@@ -13,6 +14,17 @@ const columns = [
       { label: "Education", href: "#education" },
       { label: "About us", href: "/about" },
       { label: "FAQ", href: "#faq" },
+    ],
+  },
+  {
+    title: "Calculators",
+    links: [
+      { label: "Seed SIP calculator", href: "/seed/" },
+      { label: "Harvest lump-sum calculator", href: "/harvest/" },
+      { label: "Cost of your child's goals", href: "/cost/" },
+      { label: "Shagun calculator", href: "/shagun/" },
+      { label: "How a Deed works", href: "/deed/" },
+      { label: "Whose-name audit", href: "/audit/" },
     ],
   },
   {
@@ -35,7 +47,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t">
       <div className="mx-auto w-full max-w-5xl px-6 py-16">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="flex flex-col gap-4">
             <Brand />
             <p className="max-w-xs text-sm text-muted-foreground">
@@ -103,7 +115,10 @@ export function SiteFooter() {
                 sanchit@trustfundbaby.in
               </a>
             </p>
-            <p>© 2026 TFB EduVest LLP. All rights reserved.</p>
+            <p className="flex flex-wrap items-center gap-3">
+              <CookieSettingsLink className="underline underline-offset-4 hover:text-foreground" />
+              <span>© 2026 TFB EduVest LLP. All rights reserved.</span>
+            </p>
           </div>
         </div>
       </div>

@@ -19,6 +19,7 @@ import { LaunchListForm } from "@/components/landing/launch-list";
 import { Card, CardContent } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
+import { trackOnce } from "@/lib/analytics";
 
 export function KwHeader() {
   return (
@@ -131,7 +132,10 @@ export function Control({
         max={max}
         step={step}
         aria-label={label}
-        onValueChange={([next]) => onChange(next)}
+        onValueChange={([next]) => {
+          trackOnce("calculator_used", { page: window.location.pathname });
+          onChange(next);
+        }}
       />
       <div className="flex justify-between text-xs text-muted-foreground">
         <span>{minLabel}</span>

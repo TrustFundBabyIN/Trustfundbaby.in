@@ -13,6 +13,7 @@ import { useMemo, useState } from "react";
 import { formatCompactINR, formatINR, sipFutureValue } from "@/lib/format";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { track } from "@/lib/analytics";
 import { Big, Control, Illustrative, Small, sipNeeded } from "@/components/keyword/kit";
 
 const GOALS = [
@@ -87,6 +88,7 @@ export function CostTool() {
                 aria-pressed={g.id === goalId}
                 onClick={() => {
                   setGoalId(g.id);
+                  track("cost_goal", { goal: g.id });
                   setAge((a) => Math.min(a, g.age - 1));
                 }}
                 className={cn(

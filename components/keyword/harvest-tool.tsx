@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 
 import { formatCompactINR, formatINR } from "@/lib/format";
+import { track } from "@/lib/analytics";
 import { Card, CardContent } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import {
@@ -130,7 +131,10 @@ export function HarvestTool() {
                 schedule.
               </p>
             </div>
-            <Switch checked={swpOn} onCheckedChange={setSwpOn} aria-label="Add a withdrawal plan" />
+            <Switch checked={swpOn} onCheckedChange={(v) => {
+              setSwpOn(v);
+              if (v) track("harvest_swp_on");
+            }} aria-label="Add a withdrawal plan" />
           </div>
 
           {swpOn && (
